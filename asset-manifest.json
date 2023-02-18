@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/intelli_website/static/css/main.ca23e64d.css",
+    "main.js": "/intelli_website/static/js/main.bc6ce8a3.js",
+    "static/js/787.95f025ab.chunk.js": "/intelli_website/static/js/787.95f025ab.chunk.js",
+    "static/media/back1.jpg": "/intelli_website/static/media/back1.cce3010e7acfafa49fc9.jpg",
+    "static/media/industry_background3.png": "/intelli_website/static/media/industry_background3.98a7cb5c942eed4dd98a.png",
+    "static/media/industry_background2.png": "/intelli_website/static/media/industry_background2.0c1d6b07e62c3cd5c95b.png",
+    "static/media/about_background1.png": "/intelli_website/static/media/about_background1.7585755f4f023c35bfd3.png",
+    "static/media/home_background2.png": "/intelli_website/static/media/home_background2.1a22a062b32433eba2f3.png",
+    "static/media/industry_background1.png": "/intelli_website/static/media/industry_background1.4c528e773f69da1cabf4.png",
+    "static/media/home_background1.png": "/intelli_website/static/media/home_background1.9d86338e2b3ffabc7f43.png",
+    "static/media/industry_background4.png": "/intelli_website/static/media/industry_background4.d117f356435075af862f.png",
+    "static/media/home_background3.png": "/intelli_website/static/media/home_background3.bf6e84872bf54326574b.png",
+    "static/media/home_background4.png": "/intelli_website/static/media/home_background4.a049d1cbe42b94b8f965.png",
+    "static/media/industry.png": "/intelli_website/static/media/industry.9c6fb14ad68ef8be0615.png",
+    "static/media/home.png": "/intelli_website/static/media/home.a810142e72b7d71ce4f6.png",
+    "static/media/about_background2.png": "/intelli_website/static/media/about_background2.b531bda7778f074fe37d.png",
+    "static/media/about1.png": "/intelli_website/static/media/about1.f702e41ebf5e45378bd6.png",
+    "static/media/about2.png": "/intelli_website/static/media/about2.cc3f1965b427a99795d9.png",
+    "static/media/home_system2.png": "/intelli_website/static/media/home_system2.cd7b0b651c3036468f5f.png",
+    "static/media/home_system3.png": "/intelli_website/static/media/home_system3.0606a3ca6f547c6ec9b2.png",
+    "static/media/home_system5.png": "/intelli_website/static/media/home_system5.91d08979c25587dae6c1.png",
+    "static/media/home_system1.png": "/intelli_website/static/media/home_system1.a7a02ba6222bcaec96b9.png",
+    "static/media/home_system4.png": "/intelli_website/static/media/home_system4.c4a25e4659271db32dc2.png",
+    "static/media/home_system6.png": "/intelli_website/static/media/home_system6.d3322aa3a52083bea0d0.png",
+    "static/media/logo.svg": "/intelli_website/static/media/logo.80d011e9818414269655741c6abaceee.svg",
+    "index.html": "/intelli_website/index.html",
+    "main.ca23e64d.css.map": "/intelli_website/static/css/main.ca23e64d.css.map",
+    "main.bc6ce8a3.js.map": "/intelli_website/static/js/main.bc6ce8a3.js.map",
+    "787.95f025ab.chunk.js.map": "/intelli_website/static/js/787.95f025ab.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ca23e64d.css",
+    "static/js/main.bc6ce8a3.js"
+  ]
+}
