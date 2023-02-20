@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Paper, Typography, Button } from "@mui/material";
 import about_background2 from "../img/about_background2.png";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   content3: {
@@ -45,6 +46,8 @@ const useStyles = makeStyles({
 });
 
 export default function Page3(props) {
+  const { t, i18n } = useTranslation();
+
   const classes = useStyles();
   return (
     <Paper className={classes.content3}>
@@ -61,7 +64,7 @@ export default function Page3(props) {
             marginTop: "10%",
           }}
         >
-          PRACUJ Z NAMI
+          {t("PRACUJ Z NAMI")}
         </Typography>
         <Typography
           style={{
@@ -73,8 +76,9 @@ export default function Page3(props) {
             marginRight: "5%",
           }}
         >
-          W związku z ciągłym rozwojem, poszukujemy nowych członków naszego
-          zespołu.
+          {t(
+            "W związku z ciągłym rozwojem, poszukujemy nowych członków naszego zespołu."
+          )}
         </Typography>
         <Typography
           style={{
@@ -86,7 +90,7 @@ export default function Page3(props) {
             marginRight: "5%",
           }}
         >
-          Uważasz, że mógłbyś wnieść swoją wartość do naszej firmy?
+          {t("Uważasz, że mógłbyś wnieść swoją wartość do naszej firmy?")}
         </Typography>
         <Button variant="contained" className={classes.button}>
           <a
@@ -101,7 +105,7 @@ export default function Page3(props) {
                 letterSpacing: "0.2em",
               }}
             >
-              APLIKUJ
+              {t("APLIKUJ")}
             </Typography>
           </a>
         </Button>

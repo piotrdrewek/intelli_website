@@ -6,6 +6,7 @@ import home from "./img/home.png";
 import industry from "./img/industry.png";
 import Footer from "./footer";
 import Navbar from "./navbar";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   app: {
@@ -64,6 +65,7 @@ const useStyles = makeStyles({
 });
 
 export default function Home(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <div className={classes.app}>
@@ -79,7 +81,7 @@ export default function Home(props) {
             className={classes.button}
           >
             <Typography className={classes.buttonText}>
-              AUTOMATYKA PRZEMYSŁOWA
+              {t("AUTOMATYKA PRZEMYSŁOWA")}
             </Typography>
           </Button>
         </div>
@@ -94,7 +96,7 @@ export default function Home(props) {
             className={classes.button}
           >
             <Typography className={classes.buttonText}>
-              AUTOMATYKA DOMOWA
+              {t("AUTOMATYKA DOMOWA")}
             </Typography>
           </Button>
         </div>

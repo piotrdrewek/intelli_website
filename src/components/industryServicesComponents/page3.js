@@ -1,6 +1,7 @@
 import React from "react";
 import { Paper, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   app: {
@@ -130,6 +131,7 @@ const useStyles = makeStyles({
 });
 
 export default function Page3(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <Paper className={classes.content3} style={{ backgroundColor: "white" }}>
@@ -145,7 +147,7 @@ export default function Page3(props) {
             textAlign: "left",
           }}
         >
-          KONCEPCJA
+          {t("KONCEPCJA")}
         </Typography>
         <Typography
           style={{
@@ -156,9 +158,9 @@ export default function Page3(props) {
             marginRight: "10%",
           }}
         >
-          Doradztwo w zakresie określenia potrzeb klienta dotyczących możliwości
-          optymalizacji procesów poprzez dobranie odpowiedniego typu systemu
-          automatycznego
+          {t(
+            "Doradztwo w zakresie określenia potrzeb klienta dotyczących możliwości optymalizacji procesów poprzez dobranie odpowiedniego typu systemu automatycznego"
+          )}
         </Typography>
       </div>
       <div>
@@ -172,7 +174,7 @@ export default function Page3(props) {
             textAlign: "right",
           }}
         >
-          PROJEKT
+          {t("PROJEKT")}
         </Typography>
         <Typography
           style={{
@@ -183,8 +185,9 @@ export default function Page3(props) {
             marginRight: "10%",
           }}
         >
-          Posiadamy odpowiednie kompetencje oraz zasoby umożliwiające
-          przeprowadzenie kompleksowego procesu projektowego systemu.
+          {t(
+            "Posiadamy odpowiednie kompetencje oraz zasoby umożliwiające przeprowadzenie kompleksowego procesu projektowego systemu."
+          )}
         </Typography>
       </div>
       <div>
@@ -198,7 +201,7 @@ export default function Page3(props) {
             textAlign: "left",
           }}
         >
-          SZAFY STEROWNICZE
+          {t("SZAFY STEROWNICZE")}
         </Typography>
         <Typography
           style={{
@@ -209,8 +212,9 @@ export default function Page3(props) {
             marginRight: "10%",
           }}
         >
-          Na podstawie schematów elektrycznych przeprowadzamy kompleksową
-          prefabrykacje szaf sterowniczych.
+          {t(
+            "Na podstawie schematów elektrycznych przeprowadzamy kompleksową prefabrykacje szaf sterowniczych."
+          )}
         </Typography>
       </div>
       <div>
@@ -224,7 +228,7 @@ export default function Page3(props) {
             textAlign: "right",
           }}
         >
-          MONTAŻ
+          {t("MONTAŻ")}
         </Typography>
         <Typography
           style={{
@@ -236,9 +240,9 @@ export default function Page3(props) {
             marginBottom: "5%",
           }}
         >
-          Instalacja tras kablowych, przez montaż oraz połączenie szaf
-          sterowniczych, monitoringu CCTV, systemów sieciowych aż po wykonanie
-          pomiarów elektrycznych.
+          {t(
+            "Instalacja tras kablowych, przez montaż oraz połączenie szaf sterowniczych, monitoringu CCTV, systemów sieciowych aż po wykonanie pomiarów elektrycznych."
+          )}
         </Typography>
       </div>
     </Paper>

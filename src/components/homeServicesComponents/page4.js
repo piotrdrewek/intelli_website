@@ -4,6 +4,7 @@ import { makeStyles } from "@mui/styles";
 import home_system4 from "../img/home_system4.png";
 import home_system5 from "../img/home_system5.png";
 import home_system6 from "../img/home_system6.png";
+import { Trans, useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   content4: {
@@ -33,6 +34,7 @@ const useStyles = makeStyles({
 });
 
 export default function Page4(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <Paper className={classes.content4}>
@@ -47,7 +49,7 @@ export default function Page4(props) {
           width: "100%",
         }}
       >
-        Systemy
+        {t("Systemy")}
       </Typography>
 
       <div className={classes.half4} style={{ backgroundColor: "white" }}>
@@ -60,7 +62,7 @@ export default function Page4(props) {
               marginLeft: "1%",
             }}
           >
-            MONITORUJĄCE I OPTYMALIZUJĄCE
+            {t("MONITORUJĄCE I OPTYMALIZUJĄCE")}
           </Typography>
           <Box
             component="img"
@@ -82,8 +84,9 @@ export default function Page4(props) {
               marginLeft: "5%",
             }}
           >
-            Kontrola zużytych mediów, optymalizacja zużycia za pomocą
-            automatyzacji z użyciem czujników obecności i harmonogramów.
+            {t(
+              "Kontrola zużytych mediów, optymalizacja zużycia za pomocą automatyzacji z użyciem czujników obecności i harmonogramów."
+            )}
           </Typography>
         </div>
         <div className={classes.div}>
@@ -94,7 +97,8 @@ export default function Page4(props) {
               letterSpacing: "0.15em",
             }}
           >
-            STEROWANIA ROLETAMI
+            {/* {t("STEROWANIA ROLETAMI")} */}
+            <Trans i18nKey="STEROWANIA ROLETAMI" components={{ 1: <br /> }} />
           </Typography>
           <Box
             component="img"
@@ -115,8 +119,9 @@ export default function Page4(props) {
               textAlign: "left",
             }}
           >
-            Automatyzacja otwierania i zamykania rolet z użyciem harmonogramów i
-            stacji pogodowej. Programowanie scen nastrojowych.
+            {t(
+              "Automatyzacja otwierania i zamykania rolet z użyciem harmonogramów i stacji pogodowej. Programowanie scen nastrojowych."
+            )}
           </Typography>
         </div>
         <div className={classes.div}>
@@ -127,7 +132,7 @@ export default function Page4(props) {
               letterSpacing: "0.15em",
             }}
           >
-            STEROWANIA OŚWIETLENIEM
+            {t("STEROWANIA OŚWIETLENIEM")}
           </Typography>
           <Box
             component="img"
@@ -148,8 +153,9 @@ export default function Page4(props) {
               textAlign: "left",
             }}
           >
-            Automatyzacja oświetlenia za pomocą sensorów ruchu, natężenia
-            światła i harmonogramów. Programowanie scen nastrojowych.
+            {t(
+              "Automatyzacja oświetlenia za pomocą sensorów ruchu, natężenia światła i harmonogramów. Programowanie scen nastrojowych."
+            )}
           </Typography>
         </div>
       </div>

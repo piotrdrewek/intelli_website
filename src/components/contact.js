@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Paper, Typography, Button } from "@mui/material";
 import home_background4 from "./img/home_background4.png";
+import { useTranslation } from "react-i18next";
 
 import Footer from "./footer";
 import Navbar from "./navbar";
@@ -53,6 +54,7 @@ const useStyles = makeStyles({
 });
 
 export default function Contact(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <div className={classes.app}>
@@ -71,7 +73,7 @@ export default function Contact(props) {
               letterSpacing: "0.15em",
             }}
           >
-            SKONTAKTUJ SIĘ Z NAMI
+            {t("SKONTAKTUJ SIĘ Z NAMI")}
           </Typography>
           <Typography
             style={{

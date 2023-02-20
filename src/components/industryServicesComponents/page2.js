@@ -2,6 +2,7 @@ import React from "react";
 import { Paper, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import industry_background2 from "../img/industry_background2.png";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   content2: {
@@ -27,6 +28,7 @@ const useStyles = makeStyles({
 });
 
 export default function Page2(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <Paper
@@ -42,7 +44,7 @@ export default function Page2(props) {
           textAlign: "left",
         }}
       >
-        NASZE USŁUGI
+        {t("NASZE USŁUGI")}
       </Typography>
       <Typography
         style={{
@@ -53,7 +55,7 @@ export default function Page2(props) {
           textAlign: "left",
         }}
       >
-        Nadzory inwestorskie
+        {t("Nadzory inwestorskie")}
       </Typography>
       <Typography
         style={{
@@ -68,10 +70,9 @@ export default function Page2(props) {
           textAlign: "left",
         }}
       >
-        Nasi specjaliści pomogą Państwu w kompleksowym procesie analizy założeń
-        projektowych, ofert wykonawczych. Dodatkowo wykonamy dla Państwa audyt
-        funkcjonalny oraz walidację bezpieczeństwa przez specjalistę z
-        certyfikatem CMSE®.
+        {t(
+          "Nasi specjaliści pomogą Państwu w kompleksowym procesie analizy założeń projektowych, ofert wykonawczych. Dodatkowo wykonamy dla Państwa audyt funkcjonalny oraz walidację bezpieczeństwa przez specjalistę z certyfikatem CMSE®."
+        )}
       </Typography>
     </Paper>
   );

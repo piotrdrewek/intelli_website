@@ -2,6 +2,7 @@ import React from "react";
 import { Paper, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import industry_background1 from "../img/industry_background1.png";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   content1: {
@@ -27,6 +28,7 @@ const useStyles = makeStyles({
 });
 
 export default function Page1(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <Paper className={classes.content1}>
@@ -44,7 +46,7 @@ export default function Page1(props) {
             marginLeft: "10%",
           }}
         >
-          POZNAJ NAS
+          {t("POZNAJ NAS")}
         </Typography>
         <Typography
           style={{
@@ -54,7 +56,7 @@ export default function Page1(props) {
             marginLeft: "10%",
           }}
         >
-          Nasze usługi
+          {t("Nasze usługi")}
         </Typography>
         <Typography
           style={{
@@ -68,10 +70,9 @@ export default function Page1(props) {
             textAlign: "left",
           }}
         >
-          Kompleksowa realizacja systemów automatyki przemysłowej.
-          Projektowanie, prefabrykacja szaf sterowniczych, montaż oraz
-          uruchomienie.Naszą specjalizacją są systemy transportu zarówno
-          ciężkiego jak i lekkiego.
+          {t(
+            "Kompleksowa realizacja systemów automatyki przemysłowej. Projektowanie, prefabrykacja szaf sterowniczych, montaż oraz uruchomienie.Naszą specjalizacją są systemy transportu zarówno ciężkiego jak i lekkiego."
+          )}{" "}
         </Typography>
       </div>
       <div

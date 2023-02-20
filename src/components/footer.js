@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   menu: {
@@ -72,6 +73,7 @@ const useStyles = makeStyles({
 });
 
 function Footer(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <div className={props.className}>
@@ -86,7 +88,7 @@ function Footer(props) {
             className={classes.menuButtons}
             onClick={() => window.scrollTo(0, 0)}
           >
-            <Typography style={{ fontSize: "0.9rem" }}>o nas</Typography>
+            <Typography style={{ fontSize: "0.9rem" }}>{t("o nas")}</Typography>
           </Button>
           <Button
             component={Link}
@@ -96,7 +98,9 @@ function Footer(props) {
             className={classes.menuButtons}
             onClick={() => window.scrollTo(0, 0)}
           >
-            <Typography style={{ fontSize: "0.9rem" }}>kariera</Typography>
+            <Typography style={{ fontSize: "0.9rem" }}>
+              {t("kariera")}
+            </Typography>
           </Button>
           <Button
             component={Link}
@@ -106,7 +110,9 @@ function Footer(props) {
             className={classes.menuButtons}
             onClick={() => window.scrollTo(0, 0)}
           >
-            <Typography style={{ fontSize: "0.9rem" }}>kontakt</Typography>
+            <Typography style={{ fontSize: "0.9rem" }}>
+              {t("kontakt")}
+            </Typography>
           </Button>
         </div>
         <div className={classes.icons}>
@@ -165,7 +171,9 @@ function Footer(props) {
               UL. PODJAZD 1/2,
             </Typography>
             <Typography style={{ fontSize: "0.6rem" }}>81-805 SOPOT</Typography>
-            <Typography style={{ fontSize: "0.6rem" }}>POLSKA</Typography>
+            <Typography style={{ fontSize: "0.6rem" }}>
+              {t("POLSKA")}
+            </Typography>
           </div>
           <div
             style={{

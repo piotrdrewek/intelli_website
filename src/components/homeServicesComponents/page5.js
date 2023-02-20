@@ -2,6 +2,7 @@ import React from "react";
 import { Paper, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import home_background3 from "../img/home_background3.png";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   content5: {
@@ -27,6 +28,7 @@ const useStyles = makeStyles({
 });
 
 export default function Page5(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <Paper className={classes.content5}>
@@ -49,7 +51,7 @@ export default function Page5(props) {
             textAlign: "left",
           }}
         >
-          Aplikacja użykownika
+          {t("Aplikacja użykownika")}
         </Typography>
         <Typography
           style={{
@@ -63,9 +65,9 @@ export default function Page5(props) {
             textAlign: "left",
           }}
         >
-          Wygodne sterowanie i monitorowanie funkcji budynku za pomocą jednej
-          aplikacji na smartphone, tablet lub komputer, w każdym miejscu na
-          świecie.
+          {t(
+            "Wygodne sterowanie i monitorowanie funkcji budynku za pomocą jednej aplikacji na smartphone, tablet lub komputer, w każdym miejscu na świecie."
+          )}
         </Typography>
       </div>
     </Paper>

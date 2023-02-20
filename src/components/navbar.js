@@ -3,6 +3,8 @@ import { Button, Paper, Typography } from "@mui/material";
 import { ReactComponent as CatImg } from "./img/logo.svg";
 import { Link, useLocation } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
+import { CircleFlag } from "react-circle-flags";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   appbar: {
@@ -35,6 +37,10 @@ const useStyles = makeStyles({
   buttonText: {
     fontSize: "24px",
   },
+  flags: {
+    color: "white !important",
+    minWidth: "0px !important",
+  },
 });
 
 const usePathname = () => {
@@ -43,6 +49,7 @@ const usePathname = () => {
 };
 
 function Navbar(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <div className={classes.appbar}>
@@ -57,7 +64,9 @@ function Navbar(props) {
           size="large"
           disabled={usePathname() === "/"}
         >
-          <Typography className={classes.buttonText}>STRONA GŁÓWNA</Typography>
+          <Typography className={classes.buttonText}>
+            {t("STRONA GŁÓWNA")}
+          </Typography>
         </Button>
         <Button
           component={Link}
@@ -66,7 +75,7 @@ function Navbar(props) {
           size="large"
           disabled={usePathname() === "/about"}
         >
-          <Typography className={classes.buttonText}>O NAS</Typography>
+          <Typography className={classes.buttonText}>{t("O NAS")}</Typography>
         </Button>
         <Button
           component={Link}
@@ -75,7 +84,26 @@ function Navbar(props) {
           size="large"
           disabled={usePathname() === "/contact"}
         >
-          <Typography className={classes.buttonText}> KONTAKT</Typography>
+          <Typography className={classes.buttonText}>
+            {" "}
+            {t("KONTAKT")}
+          </Typography>
+        </Button>
+        <Button
+          className={classes.flags}
+          onClick={() => {
+            i18n.changeLanguage("EN");
+          }}
+        >
+          <CircleFlag countryCode="gb" height="16" />
+        </Button>
+        <Button
+          className={classes.flags}
+          onClick={() => {
+            i18n.changeLanguage("PL");
+          }}
+        >
+          <CircleFlag countryCode="pl" height="16" />
         </Button>
       </Paper>
     </div>

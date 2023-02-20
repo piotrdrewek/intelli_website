@@ -2,6 +2,7 @@ import React from "react";
 import { Paper, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import home_background2 from "../img/home_background2.png";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   content2: {
@@ -27,6 +28,7 @@ const useStyles = makeStyles({
 });
 
 export default function Page2(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <Paper
@@ -42,7 +44,7 @@ export default function Page2(props) {
           textAlign: "left",
         }}
       >
-        NASZE USŁUGI
+        {t("NASZE USŁUGI")}
       </Typography>
       <Typography
         style={{
@@ -53,7 +55,7 @@ export default function Page2(props) {
           textAlign: "left",
         }}
       >
-        Rozwiązania IOT
+        {t("Rozwiązania IOT")}
       </Typography>
       <Typography
         style={{
@@ -68,9 +70,9 @@ export default function Page2(props) {
           textAlign: "left",
         }}
       >
-        Integracja urządzeń IOT(systemy audio, smart urządzenia AGD, roboty
-        sprzątające, roboty ogrodowe, nawilżacze powietrza, etc.) z pozostałymi
-        systemami automatyki w budynku.
+        {t(
+          "Integracja urządzeń IOT(systemy audio, smart urządzenia AGD, roboty sprzątające, roboty ogrodowe, nawilżacze powietrza, etc.) z pozostałymi systemami automatyki w budynku."
+        )}
       </Typography>
     </Paper>
   );

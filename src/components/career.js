@@ -1,10 +1,10 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Paper, Typography, Button } from "@mui/material";
-import about_background1 from "./img/about_background1.png";
 import about_background2 from "./img/about_background2.png";
 import Footer from "./footer";
 import Navbar from "./navbar";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   app: {
@@ -58,6 +58,7 @@ const useStyles = makeStyles({
 });
 
 export default function Career(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <div className={classes.app}>
@@ -75,7 +76,7 @@ export default function Career(props) {
               marginTop: "20%",
             }}
           >
-            PRACUJ Z NAMI
+            {t("PRACUJ Z NAMI")}
           </Typography>
           <Typography
             style={{
@@ -87,8 +88,9 @@ export default function Career(props) {
               marginRight: "5%",
             }}
           >
-            W związku z ciągłym rozwojem, poszukujemy nowych członków naszego
-            zespołu.
+            {t(
+              "W związku z ciągłym rozwojem, poszukujemy nowych członków naszego zespołu."
+            )}
           </Typography>
           <Typography
             style={{
@@ -100,7 +102,7 @@ export default function Career(props) {
               marginRight: "5%",
             }}
           >
-            Uważasz, że mógłbyś wnieść swoją wartość do naszej firmy?
+            {t("Uważasz, że mógłbyś wnieść swoją wartość do naszej firmy?")}
           </Typography>
           <Button variant="contained" className={classes.button}>
             <a
@@ -115,7 +117,7 @@ export default function Career(props) {
                   letterSpacing: "0.2em",
                 }}
               >
-                APLIKUJ
+                {t("APLIKUJ")}
               </Typography>
             </a>
           </Button>

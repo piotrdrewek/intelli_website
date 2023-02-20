@@ -3,6 +3,7 @@ import { makeStyles } from "@mui/styles";
 import { Paper, Typography, Box } from "@mui/material";
 import about1 from "../img/about1.png";
 import about2 from "../img/about2.png";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   content2: {
@@ -24,6 +25,7 @@ const useStyles = makeStyles({
 });
 
 export default function Page2(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <Paper className={classes.content2}>
@@ -39,7 +41,7 @@ export default function Page2(props) {
             marginLeft: "20%",
           }}
         >
-          Nasza praca
+          {t("Nasza praca")}
         </Typography>
         <Typography
           style={{
@@ -51,9 +53,9 @@ export default function Page2(props) {
             marginRight: "10%",
           }}
         >
-          Zajmujemy się całym procesem produkcyjnym związanym z dostarczeniem w
-          pełni funkcjonalnego systemu automatyki, wspierającego funkcjonowanie
-          magazynów, zakładów produkcyjnych i centrów dystrybucyjnych.
+          {t(
+            "Zajmujemy się całym procesem produkcyjnym związanym z dostarczeniem w pełni funkcjonalnego systemu automatyki, wspierającego funkcjonowanie magazynów, zakładów produkcyjnych i centrów dystrybucyjnych."
+          )}
         </Typography>
         <Box
           component="img"
@@ -85,7 +87,7 @@ export default function Page2(props) {
             marginLeft: "20%",
           }}
         >
-          Nasza misja
+          {t("Nasza misja")}
         </Typography>
         <Typography
           style={{
@@ -98,9 +100,9 @@ export default function Page2(props) {
             marginBottom: "5%",
           }}
         >
-          Zajmujemy się całym procesem produkcyjnym związanym z dostarczeniem w
-          pełni funkcjonalnego systemu automatyki, wspierającego funkcjonowanie
-          magazynów, zakładów produkcyjnych i centrów dystrybucyjnych.
+          {t(
+            "Dostarczanie klientom najwyższych standardów jakości w branży, z innowacyjnymi rozwiązaniami, opartymi na profesjonalizmie i doświadczeniu naszego zespołu."
+          )}
         </Typography>
       </div>
     </Paper>

@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@mui/styles";
 import { Paper, Typography } from "@mui/material";
 import about_background1 from "../img/about_background1.png";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   content1: {
@@ -26,6 +27,7 @@ const useStyles = makeStyles({
 });
 
 export default function Page1(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <Paper
@@ -42,7 +44,7 @@ export default function Page1(props) {
             marginLeft: "10%",
           }}
         >
-          O NAS
+          {t("O NAS")}
         </Typography>
         <Typography
           style={{
@@ -52,7 +54,7 @@ export default function Page1(props) {
             marginLeft: "10%",
           }}
         >
-          Z prawdziwej pasji
+          {t("Z prawdziwej pasji")}
         </Typography>
         <Typography
           style={{
@@ -66,10 +68,9 @@ export default function Page1(props) {
             textAlign: "left",
           }}
         >
-          Intelli Jest wynikiem prawdziwej pasji do automatyki. Projekt
-          rozpoczęty przez zespół pasjonatów i doświadczonych specjalistów.
-          Skupiamy się na dostarczaniu najlepszych rozwiązań z zakresu
-          automatyki przemysłowej i domowej.
+          {t(
+            "Intelli Jest wynikiem prawdziwej pasji do automatyki. Projekt rozpoczęty przez zespół pasjonatów i doświadczonych specjalistów. Skupiamy się na dostarczaniu najlepszych rozwiązań z zakresu automatyki przemysłowej i domowej."
+          )}
         </Typography>
       </div>
     </Paper>

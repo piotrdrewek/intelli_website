@@ -5,6 +5,7 @@ import Page2 from "./aboutComponents/page2";
 import Page3 from "./aboutComponents/page3";
 import Footer from "./footer";
 import Navbar from "./navbar";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   app: {
@@ -27,6 +28,7 @@ const useStyles = makeStyles({
 });
 
 export default function About(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <div className={classes.app}>

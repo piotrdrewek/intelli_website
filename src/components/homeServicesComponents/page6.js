@@ -2,6 +2,7 @@ import React from "react";
 import { Paper, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import home_background4 from "../img/home_background4.png";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   content6: {
@@ -26,6 +27,7 @@ const useStyles = makeStyles({
 });
 
 export default function Page6(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <Paper
@@ -43,7 +45,7 @@ export default function Page6(props) {
             letterSpacing: "0.15em",
           }}
         >
-          SKONTAKTUJ SIĘ Z NAMI
+          {t("SKONTAKTUJ SIĘ Z NAMI")}
         </Typography>
         <Typography
           style={{

@@ -4,6 +4,7 @@ import { makeStyles } from "@mui/styles";
 import home_system1 from "../img/home_system1.png";
 import home_system2 from "../img/home_system2.png";
 import home_system3 from "../img/home_system3.png";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   content3: {
@@ -35,6 +36,7 @@ const useStyles = makeStyles({
 });
 
 export default function Page3(props) {
+  const { t, i18n } = useTranslation();
   const classes = useStyles();
   return (
     <Paper className={classes.content3}>
@@ -49,7 +51,7 @@ export default function Page3(props) {
           width: "100%",
         }}
       >
-        Systemy
+        {t("Systemy")}
       </Typography>
       <div className={classes.half3} style={{ backgroundColor: "white" }}>
         <div className={classes.div}>
@@ -81,8 +83,9 @@ export default function Page3(props) {
               textAlign: "left",
             }}
           >
-            Sterowanie temperaturą i wentylacją w pomieszczeniach dla własnego
-            komfortu i oszczędności.
+            {t(
+              "Sterowanie temperaturą i wentylacją w pomieszczeniach dla własnego komfortu i oszczędności."
+            )}
           </Typography>
         </div>
         <div className={classes.div}>
@@ -93,7 +96,7 @@ export default function Page3(props) {
               letterSpacing: "0.15em",
             }}
           >
-            BEZPIECZEŃSTWA
+            {t("BEZPIECZEŃSTWA")}
           </Typography>
           <Box
             component="img"
@@ -114,9 +117,9 @@ export default function Page3(props) {
               textAlign: "left",
             }}
           >
-            Systemy chroniące przed włamaniem i nieautoryzowanym dostępem.
-            Symulacja obecności w budynku. Monitorowanie poziomu jakości
-            powietrza w pomieszczeniu.
+            {t(
+              "Systemy chroniące przed włamaniem i nieautoryzowanym dostępem. Symulacja obecności w budynku. Monitorowanie poziomu jakości powietrza w pomieszczeniu."
+            )}
           </Typography>
         </div>
         <div className={classes.div}>
@@ -127,7 +130,7 @@ export default function Page3(props) {
               letterSpacing: "0.15em",
             }}
           >
-            MONITORING
+            {t("MONITORING")}
           </Typography>
           <Box
             component="img"
@@ -149,9 +152,9 @@ export default function Page3(props) {
               marginRight: "2%",
             }}
           >
-            Integracja monitoringu z aplikacją zarządzania budynku.
-            Automatyzacja bram wjazdowych za pomocą rozpoznawania tablic
-            rejestracyjnych.
+            {t(
+              "Integracja monitoringu z aplikacją zarządzania budynku. Automatyzacja bram wjazdowych za pomocą rozpoznawania tablic rejestracyjnych."
+            )}
           </Typography>
         </div>
       </div>
