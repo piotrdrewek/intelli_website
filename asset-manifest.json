@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/intelli_website/static/css/main.ca23e64d.css",
-    "main.js": "/intelli_website/static/js/main.8411b35f.js",
+    "main.js": "/intelli_website/static/js/main.4a62dda0.js",
     "static/js/787.95f025ab.chunk.js": "/intelli_website/static/js/787.95f025ab.chunk.js",
     "static/media/back1.jpg": "/intelli_website/static/media/back1.cce3010e7acfafa49fc9.jpg",
     "static/media/industry_background3.png": "/intelli_website/static/media/industry_background3.98a7cb5c942eed4dd98a.png",
@@ -28,11 +28,11 @@
     "index.html": "/intelli_website/index.html",
     "static/media/getFetch.cjs": "/intelli_website/static/media/getFetch.40f37ddea2378391108f.cjs",
     "main.ca23e64d.css.map": "/intelli_website/static/css/main.ca23e64d.css.map",
-    "main.8411b35f.js.map": "/intelli_website/static/js/main.8411b35f.js.map",
+    "main.4a62dda0.js.map": "/intelli_website/static/js/main.4a62dda0.js.map",
     "787.95f025ab.chunk.js.map": "/intelli_website/static/js/787.95f025ab.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ca23e64d.css",
-    "static/js/main.8411b35f.js"
+    "static/js/main.4a62dda0.js"
   ]
 }
