@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     color: "black",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignContent: "flex-start",
   },
   menuButtons: {

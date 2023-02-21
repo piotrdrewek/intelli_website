@@ -21,8 +21,9 @@ const useStyles = makeStyles({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    width: "100vw",
+    width: "100%",
     height: "25vh",
+
     boxShadow:
       "0px 3px 1px -2px rgba(0,0,0,0),0px 2px 2px 0px rgba(0,0,0,0),0px 1px 5px 0px rgba(0,0,0,0) !important",
   },
