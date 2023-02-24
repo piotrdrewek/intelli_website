@@ -3,6 +3,17 @@ import { Paper, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import industry_background1 from "../img/industry_background1.png";
 import { useTranslation } from "react-i18next";
+import { isMobile } from "react-device-detect";
+const fonts = {
+  header1: "16px !important",
+  header2: "54px !important",
+  text1: "24px !important",
+};
+if (isMobile) {
+  fonts.header1 = "32px !important";
+  fonts.header2 = "80px !important";
+  fonts.text1 = "48px !important";
+}
 
 const useStyles = makeStyles({
   content1: {
@@ -25,10 +36,32 @@ const useStyles = makeStyles({
     alignItems: "flex-start",
     justifyContent: "center",
   },
+  header1: {
+    color: "#FFA033",
+    fontSize: fonts.header1,
+    letterSpacing: "0.3em",
+    marginLeft: "10% !important",
+  },
+  header2: {
+    color: "#FFA033",
+    fontSize: fonts.header2,
+    letterSpacing: "0.15em",
+    marginLeft: "10% !important",
+  },
+  text1: {
+    color: "#484848",
+    fontSize: fonts.text1,
+    letterSpacing: "0.05em",
+    marginTop: "5% !important",
+    marginBottom: "5% !important",
+    marginLeft: "10% !important",
+    marginRight: "10% !important",
+    textAlign: "left",
+  },
 });
 
 export default function Page1(props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const classes = useStyles();
   return (
     <Paper className={classes.content1}>
@@ -38,38 +71,9 @@ export default function Page1(props) {
           backgroundColor: "white",
         }}
       >
-        <Typography
-          style={{
-            color: "#FFA033",
-            fontSize: "16px",
-            letterSpacing: "0.3em",
-            marginLeft: "10%",
-          }}
-        >
-          {t("POZNAJ NAS")}
-        </Typography>
-        <Typography
-          style={{
-            color: "#FFA033",
-            fontSize: "54px",
-            letterSpacing: "0.15em",
-            marginLeft: "10%",
-          }}
-        >
-          {t("Nasze usługi")}
-        </Typography>
-        <Typography
-          style={{
-            color: "#484848",
-            fontSize: "24px",
-            letterSpacing: "0.05em",
-            marginTop: "5%",
-            marginBottom: "5%",
-            marginLeft: "10%",
-            marginRight: "10%",
-            textAlign: "left",
-          }}
-        >
+        <Typography className={classes.header1}>{t("POZNAJ NAS")}</Typography>
+        <Typography className={classes.header2}>{t("Nasze usługi")}</Typography>
+        <Typography className={classes.text1}>
           {t(
             "Kompleksowa realizacja systemów automatyki przemysłowej. Projektowanie, prefabrykacja szaf sterowniczych, montaż oraz uruchomienie.Naszą specjalizacją są systemy transportu zarówno ciężkiego jak i lekkiego."
           )}{" "}

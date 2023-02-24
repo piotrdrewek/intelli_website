@@ -3,6 +3,21 @@ import { Paper, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import industry_background4 from "../img/industry_background4.png";
 import { useTranslation } from "react-i18next";
+import { isMobile } from "react-device-detect";
+const fonts = {
+  header1: "25px !important",
+  text1: "30px !important",
+  text2: "30px !important",
+  half1Width: "60%",
+  half2Width: " 40%",
+};
+if (isMobile) {
+  fonts.header1 = "40px !important";
+  fonts.text1 = "50px !important";
+  fonts.text2 = "50px !important";
+  fonts.half1Width = "40%";
+  fonts.half2Width = "60%";
+}
 
 const useStyles = makeStyles({
   content5: {
@@ -28,10 +43,27 @@ const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "center",
   },
+  header1: {
+    color: "#FFCF40",
+    fontSize: fonts.header1,
+    letterSpacing: "0.15em",
+  },
+  text1: {
+    color: "#FFFFFF",
+    fontSize: fonts.text1,
+    letterSpacing: "0.25em",
+    marginTop: "10% !important",
+    marginBottom: "5% !important",
+  },
+  text2: {
+    color: "#FFFFFF",
+    fontSize: fonts.text2,
+    letterSpacing: "0.15em",
+  },
 });
 
 export default function IndustryServices(props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const classes = useStyles();
   return (
     <Paper className={classes.content5}>
@@ -39,42 +71,18 @@ export default function IndustryServices(props) {
         className={classes.half5}
         style={{
           backgroundImage: `url(${industry_background4})`,
-          width: "60%",
+          width: fonts.half1Width,
         }}
       ></div>
       <div
         className={classes.half5}
-        style={{ backgroundColor: "#23221E", width: "40%" }}
+        style={{ backgroundColor: "#23221E", width: fonts.half2Width }}
       >
-        <Typography
-          style={{
-            color: "#FFCF40",
-            fontSize: "25px",
-            letterSpacing: "0.15em",
-          }}
-        >
+        <Typography className={classes.header1}>
           {t("SKONTAKTUJ SIĘ Z NAMI")}
         </Typography>
-        <Typography
-          style={{
-            color: "#FFFFFF",
-            fontSize: "30px",
-            letterSpacing: "0.25em",
-            marginTop: "10%",
-            marginBottom: "5%",
-          }}
-        >
-          BIURO@INTELLI.COM.PL
-        </Typography>
-        <Typography
-          style={{
-            color: "#FFFFFF",
-            fontSize: "30px",
-            letterSpacing: "0.15em",
-          }}
-        >
-          (+48) 607 683 704
-        </Typography>
+        <Typography className={classes.text1}>BIURO@INTELLI.COM.PL</Typography>
+        <Typography className={classes.text2}>(+48) 607 683 704</Typography>
       </div>
     </Paper>
   );

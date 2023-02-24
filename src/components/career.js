@@ -5,6 +5,19 @@ import about_background2 from "./img/about_background2.png";
 import Footer from "./footer";
 import Navbar from "./navbar";
 import { useTranslation } from "react-i18next";
+import { isMobile } from "react-device-detect";
+const fonts = {
+  header1: "30px !important",
+  text1: "18px !important",
+  text2: "18px !important",
+  ButtonText: "22px !important",
+};
+if (isMobile) {
+  fonts.header1 = "60px !important";
+  fonts.text1 = "36px !important";
+  fonts.text2 = "36px !important";
+  fonts.ButtonText = "44px !important";
+}
 
 const useStyles = makeStyles({
   app: {
@@ -55,10 +68,38 @@ const useStyles = makeStyles({
     gridArea: "r-lin2 / c-line1 / r-line3 / c-line3",
     height: " 15vh",
   },
+  header1: {
+    color: "#FFA033",
+    fontSize: fonts.header1,
+    letterSpacing: "0.15em",
+    textAlign: "left",
+    marginTop: "20% !important",
+  },
+  text1: {
+    color: "#4E4E4E",
+    fontSize: fonts.text1,
+    letterSpacing: "0.15em",
+    textAlign: "left",
+    marginLeft: "10% !important",
+    marginRight: "5% !important",
+  },
+  text2: {
+    color: "#FFCF40",
+    fontSize: fonts.text2,
+    letterSpacing: "0.15em",
+    textAlign: "left",
+    marginLeft: "10% !important",
+    marginRight: "5% !important",
+  },
+  ButtonText: {
+    color: "#FFFFFF",
+    fontSize: fonts.ButtonText,
+    letterSpacing: "0.2em",
+  },
 });
 
 export default function Career(props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const classes = useStyles();
   return (
     <div className={classes.app}>
@@ -67,41 +108,15 @@ export default function Career(props) {
           className={classes.half1}
           style={{ backgroundColor: "white", width: "40%" }}
         >
-          <Typography
-            style={{
-              color: "#FFA033",
-              fontSize: "30px",
-              letterSpacing: "0.15em",
-              textAlign: "left",
-              marginTop: "20%",
-            }}
-          >
+          <Typography className={classes.header1}>
             {t("PRACUJ Z NAMI")}
           </Typography>
-          <Typography
-            style={{
-              color: "#4E4E4E",
-              fontSize: "18px",
-              letterSpacing: "0.15em",
-              textAlign: "left",
-              marginLeft: "10%",
-              marginRight: "5%",
-            }}
-          >
+          <Typography className={classes.text1}>
             {t(
               "W związku z ciągłym rozwojem, poszukujemy nowych członków naszego zespołu."
             )}
           </Typography>
-          <Typography
-            style={{
-              color: "#FFCF40",
-              fontSize: "18px",
-              letterSpacing: "0.15em",
-              textAlign: "left",
-              marginLeft: "10%",
-              marginRight: "5%",
-            }}
-          >
+          <Typography className={classes.text2}>
             {t("Uważasz, że mógłbyś wnieść swoją wartość do naszej firmy?")}
           </Typography>
           <Button variant="contained" className={classes.button}>
@@ -110,13 +125,7 @@ export default function Career(props) {
               target="_blank"
               style={{ textDecoration: "none", color: "black" }}
             >
-              <Typography
-                style={{
-                  color: "#FFFFFF",
-                  fontSize: "22px",
-                  letterSpacing: "0.2em",
-                }}
-              >
+              <Typography className={classes.ButtonText}>
                 {t("APLIKUJ")}
               </Typography>
             </a>

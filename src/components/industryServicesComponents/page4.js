@@ -3,6 +3,15 @@ import { Paper, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import industry_background3 from "../img/industry_background3.png";
 import { useTranslation } from "react-i18next";
+import { isMobile } from "react-device-detect";
+const fonts = {
+  header1: "40px !important",
+  text1: "21px !important",
+};
+if (isMobile) {
+  fonts.header1 = "42px !important";
+  fonts.text1 = "42px !important";
+}
 
 const useStyles = makeStyles({
   content4: {
@@ -28,10 +37,28 @@ const useStyles = makeStyles({
     flexDirection: "row",
     width: "100%",
   },
+  header1: {
+    color: "#FFCF40",
+    fontSize: fonts.header1,
+    letterSpacing: "0.15em",
+    marginLeft: "10% !important",
+    marginRight: "10% !important",
+    textAlign: "left",
+    width: "40%",
+  },
+
+  text1: {
+    color: "#FFFFFF",
+    fontSize: fonts.text1,
+    letterSpacing: "0.1em",
+    marginRight: "5% !important",
+    textAlign: "left",
+    width: "60%",
+  },
 });
 
 export default function Page4(props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const classes = useStyles();
   return (
     <Paper
@@ -48,116 +75,34 @@ export default function Page4(props) {
         }}
       >
         <div className={classes.line1}>
-          <Typography
-            style={{
-              color: "#FFCF40",
-              fontSize: "40px",
-              letterSpacing: "0.15em",
-              marginLeft: "10%",
-              marginRight: "10%",
-              textAlign: "left",
-              width: "40%",
-            }}
-          >
+          <Typography className={classes.header1}>
             {t("PRZYGOTOWANIE PLC/HMI")}
           </Typography>
-          <Typography
-            style={{
-              color: "#FFFFFF",
-              fontSize: "21px",
-              letterSpacing: "0.1em",
-              marginRight: "5%",
-              textAlign: "left",
-              width: "60%",
-            }}
-          >
+          <Typography className={classes.text1}>
             {t(
               "Bazując na założeniach projektowych oraz opisie funkcjonalnym przygotujemy kompleksowo program PLC sterujący procesem oraz przygotujemy intuicyjną aplikację panelu HMI."
             )}
           </Typography>
         </div>
         <div className={classes.line1} style={{ alignItems: "space-between" }}>
-          <Typography
-            style={{
-              color: "#FFCF40",
-              fontSize: "40px",
-              letterSpacing: "0.15em",
-              marginLeft: "10%",
-              marginRight: "10%",
-              textAlign: "left",
-              width: "40%",
-            }}
-          >
-            {t("INTEGRACJA")}
-          </Typography>
-          <Typography
-            style={{
-              color: "#FFFFFF",
-              fontSize: "21px",
-              letterSpacing: "0.1em",
-              marginRight: "5%",
-              textAlign: "left",
-              width: "60%",
-            }}
-          >
+          <Typography className={classes.header1}>{t("INTEGRACJA")}</Typography>
+          <Typography className={classes.text1}>
             {t(
               "Nasi doświadczeni programiści zajmą się kompleksowo integracją oraz uruchomieniem dostarczonego systemu."
             )}
           </Typography>
         </div>
         <div className={classes.line1}>
-          <Typography
-            style={{
-              color: "#FFCF40",
-              fontSize: "40px",
-              letterSpacing: "0.15em",
-              marginLeft: "10%",
-              marginRight: "10%",
-              textAlign: "left",
-              width: "40%",
-            }}
-          >
-            {t("SZKOLENIE")}
-          </Typography>
-          <Typography
-            style={{
-              color: "#FFFFFF",
-              fontSize: "21px",
-              letterSpacing: "0.1em",
-              marginRight: "5%",
-              width: "60%",
-              textAlign: "left",
-            }}
-          >
+          <Typography className={classes.header1}>{t("SZKOLENIE")}</Typography>
+          <Typography className={classes.text1}>
             {t(
               "Po uruchomieniu systemu zadbamy o to, aby obsługa była przygotowana na pracę z nim oraz wiedziała jakie czynności należy przeprowadzać okresowo, aby zapewnić jego bezawaryjną pracę."
             )}
           </Typography>
         </div>
         <div className={classes.line1}>
-          <Typography
-            style={{
-              color: "#FFCF40",
-              fontSize: "40px",
-              letterSpacing: "0.15em",
-              marginLeft: "10%",
-              marginRight: "10%",
-              textAlign: "left",
-              width: "40%",
-            }}
-          >
-            {t("SERWIS")}
-          </Typography>
-          <Typography
-            style={{
-              color: "#FFFFFF",
-              fontSize: "21px",
-              letterSpacing: "0.1em",
-              marginRight: "5%",
-              width: "60%",
-              textAlign: "left",
-            }}
-          >
+          <Typography className={classes.header1}>{t("SERWIS")}</Typography>
+          <Typography className={classes.text1}>
             {t(
               "Nasz dział serwisowy zadba o wsparcie obsługi w przypadku wystąpienia takiej konieczności. Oferujemy obsługę w języku polskim, angielskim, niemieckim oraz francuskim."
             )}

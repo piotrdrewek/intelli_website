@@ -3,6 +3,19 @@ import { makeStyles } from "@mui/styles";
 import { Paper, Typography, Button } from "@mui/material";
 import about_background2 from "../img/about_background2.png";
 import { useTranslation } from "react-i18next";
+import { isMobile } from "react-device-detect";
+const fonts = {
+  header1: "30px !important",
+  text1: "18px !important",
+  buttonText: "22px !important",
+  contactText: "30px !important",
+};
+if (isMobile) {
+  fonts.header1 = "60px !important";
+  fonts.text1 = "36px !important";
+  fonts.buttonText = "44px !important";
+  fonts.contactText = "60px !important";
+}
 
 const useStyles = makeStyles({
   content3: {
@@ -44,10 +57,43 @@ const useStyles = makeStyles({
     borderColor: "#FFA033 !important",
     background: "#FFA033 !important",
   },
+  header1: {
+    color: "#FFA033",
+    fontSize: fonts.header1,
+    letterSpacing: "0.15em",
+    textAlign: "left",
+    marginTop: "10% !important",
+  },
+  text1: {
+    color: "#4E4E4E",
+    fontSize: fonts.text1,
+    letterSpacing: "0.15em",
+    textAlign: "left",
+    marginLeft: "10% !important",
+    marginRight: "5% !important",
+  },
+  text2: {
+    color: "#FFCF40",
+    fontSize: fonts.text1,
+    letterSpacing: "0.15em",
+    textAlign: "left",
+    marginLeft: "10% !important",
+    marginRight: "5% !important",
+  },
+  buttonText: {
+    color: "#FFFFFF",
+    fontSize: fonts.buttonText,
+    letterSpacing: "0.2em",
+  },
+  contactText: {
+    color: "#000000",
+    fontSize: fonts.contactText,
+    letterSpacing: "0.15em",
+  },
 });
 
 export default function Page3(props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const classes = useStyles();
   return (
@@ -56,41 +102,15 @@ export default function Page3(props) {
         className={classes.half3}
         style={{ backgroundColor: "white", width: "40%" }}
       >
-        <Typography
-          style={{
-            color: "#FFA033",
-            fontSize: "30px",
-            letterSpacing: "0.15em",
-            textAlign: "left",
-            marginTop: "10%",
-          }}
-        >
+        <Typography className={classes.header1}>
           {t("PRACUJ Z NAMI")}
         </Typography>
-        <Typography
-          style={{
-            color: "#4E4E4E",
-            fontSize: "18px",
-            letterSpacing: "0.15em",
-            textAlign: "left",
-            marginLeft: "10%",
-            marginRight: "5%",
-          }}
-        >
+        <Typography className={classes.text1}>
           {t(
             "W związku z ciągłym rozwojem, poszukujemy nowych członków naszego zespołu."
           )}
         </Typography>
-        <Typography
-          style={{
-            color: "#FFCF40",
-            fontSize: "18px",
-            letterSpacing: "0.15em",
-            textAlign: "left",
-            marginLeft: "10%",
-            marginRight: "5%",
-          }}
-        >
+        <Typography className={classes.text2}>
           {t("Uważasz, że mógłbyś wnieść swoją wartość do naszej firmy?")}
         </Typography>
         <Button variant="contained" className={classes.button}>
@@ -99,13 +119,7 @@ export default function Page3(props) {
             target="_blank"
             style={{ textDecoration: "none", color: "black" }}
           >
-            <Typography
-              style={{
-                color: "#FFFFFF",
-                fontSize: "22px",
-                letterSpacing: "0.2em",
-              }}
-            >
+            <Typography className={classes.buttonText}>
               {t("APLIKUJ")}
             </Typography>
           </a>
@@ -116,24 +130,10 @@ export default function Page3(props) {
         style={{ backgroundImage: `url(${about_background2})`, width: "60%" }}
       ></div>
       <Paper className={classes.content4}>
-        <Typography
-          style={{
-            color: "#000000",
-            fontSize: "30px",
-            letterSpacing: "0.25em",
-            // marginTop: "10%",
-            // marginBottom: "5%",
-          }}
-        >
+        <Typography className={classes.contactText}>
           BIURO@INTELLI.COM.PL
         </Typography>
-        <Typography
-          style={{
-            color: "#000000",
-            fontSize: "30px",
-            letterSpacing: "0.15em",
-          }}
-        >
+        <Typography className={classes.contactText}>
           (+48) 607 683 704
         </Typography>
       </Paper>

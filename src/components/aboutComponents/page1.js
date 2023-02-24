@@ -3,11 +3,22 @@ import { makeStyles } from "@mui/styles";
 import { Paper, Typography } from "@mui/material";
 import about_background1 from "../img/about_background1.png";
 import { useTranslation } from "react-i18next";
+import { isMobile } from "react-device-detect";
+const fonts = {
+  half1Width: "50%",
+  header1: "16px !important",
+  header2: "54px !important",
+};
+if (isMobile) {
+  fonts.header1 = "30px !important";
+  fonts.header2 = "100px !important";
+  fonts.half1Width = "100%";
+}
 
 const useStyles = makeStyles({
   content1: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
     flexWrap: "wrap",
     gridArea: "r-line1 / c-line1 / r-line3 / c-line3",
     height: "100vh",
@@ -18,42 +29,38 @@ const useStyles = makeStyles({
   },
   half1: {
     height: "100vh",
-    width: "50%",
+    width: fonts.half1Width,
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
     flexDirection: "column",
   },
+  header1: {
+    color: "#FFA033",
+    fontSize: fonts.header1,
+    letterSpacing: "0.3em",
+    marginLeft: "10% !important",
+  },
+  header2: {
+    color: "#FFA033",
+    fontSize: fonts.header2,
+    letterSpacing: "0.15em",
+    marginLeft: "10% !important",
+  },
 });
 
 export default function Page1(props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const classes = useStyles();
   return (
     <Paper
       className={classes.content1}
       style={{ backgroundImage: `url(${about_background1})` }}
     >
-      <div className={classes.half1}></div>
+      {/* <div className={classes.half1}></div> */}
       <div className={classes.half1}>
-        <Typography
-          style={{
-            color: "#FFA033",
-            fontSize: "16px",
-            letterSpacing: "0.3em",
-            marginLeft: "10%",
-          }}
-        >
-          {t("O NAS")}
-        </Typography>
-        <Typography
-          style={{
-            color: "#FFA033",
-            fontSize: "54px",
-            letterSpacing: "0.15em",
-            marginLeft: "10%",
-          }}
-        >
+        <Typography className={classes.header1}>{t("O NAS")}</Typography>
+        <Typography className={classes.header2}>
           {t("Z prawdziwej pasji")}
         </Typography>
         <Typography

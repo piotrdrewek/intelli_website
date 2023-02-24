@@ -5,7 +5,21 @@ import home_system1 from "../img/home_system1.png";
 import home_system2 from "../img/home_system2.png";
 import home_system3 from "../img/home_system3.png";
 import { useTranslation } from "react-i18next";
-
+import { isMobile } from "react-device-detect";
+const fonts = {
+  header1: "54px !important",
+  header2: "28px !important",
+  text1: "14px !important",
+  imgHeight: "323px",
+  imgWidth: "288px",
+};
+if (isMobile) {
+  fonts.header1 = "70px !important";
+  fonts.header2 = "28px !important";
+  fonts.text1 = "25px !important";
+  fonts.imgHeight = "400px";
+  fonts.imgWidth = "350px";
+}
 const useStyles = makeStyles({
   content3: {
     display: "flex",
@@ -31,127 +45,93 @@ const useStyles = makeStyles({
     flexDirection: "column",
     alignItems: "space-between",
     justifyContent: "flex-start",
-    width: "288px",
+    width: fonts.imgWidth,
+  },
+  header1: {
+    color: "#FFA033",
+    fontSize: fonts.header1,
+    textAlign: "left",
+    letterSpacing: "0.1em",
+    marginLeft: "75px !important",
+    marginTop: "75px !important",
+    width: "100%",
+  },
+  header2: {
+    color: "#FFA033",
+    fontSize: fonts.header2,
+    letterSpacing: "0.15em",
+    marginLeft: "1% !important",
+    textAlign: "left",
+  },
+  text1: {
+    color: "#000000",
+    fontSize: fonts.text1,
+    letterSpacing: "0.05em",
+    textAlign: "left",
   },
 });
 
 export default function Page3(props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const classes = useStyles();
   return (
     <Paper className={classes.content3}>
-      <Typography
-        style={{
-          color: "#FFA033",
-          fontSize: "54px",
-          letterSpacing: "0.1em",
-          marginLeft: "75px",
-          marginTop: "75px",
-          textAlign: "left",
-          width: "100%",
-        }}
-      >
-        {t("Systemy")}
-      </Typography>
+      <Typography className={classes.header1}>{t("Systemy")}</Typography>
       <div className={classes.half3} style={{ backgroundColor: "white" }}>
         <div className={classes.div}>
-          <Typography
-            style={{
-              color: "#FFA033",
-              fontSize: "28px",
-              letterSpacing: "0.15em",
-            }}
-          >
-            HVAC
-          </Typography>
+          <Typography className={classes.header2}>HVAC</Typography>
           <Box
             component="img"
             sx={{
-              height: "323px",
-              width: "288px",
+              height: fonts.imgHeight,
+              width: fonts.imgWidth,
               marginTop: "10%",
               marginBottom: "10%",
             }}
             alt="Your logo."
             src={home_system1}
           />
-          <Typography
-            style={{
-              color: "#000000",
-              fontSize: "14px",
-              letterSpacing: "0.05em",
-              textAlign: "left",
-            }}
-          >
+          <Typography className={classes.text1}>
             {t(
               "Sterowanie temperaturą i wentylacją w pomieszczeniach dla własnego komfortu i oszczędności."
             )}
           </Typography>
         </div>
         <div className={classes.div}>
-          <Typography
-            style={{
-              color: "#FFA033",
-              fontSize: "28px",
-              letterSpacing: "0.15em",
-            }}
-          >
+          <Typography className={classes.header2}>
             {t("BEZPIECZEŃSTWA")}
           </Typography>
           <Box
             component="img"
             sx={{
-              height: "323px",
-              width: "288px",
+              height: fonts.imgHeight,
+              width: fonts.imgWidth,
               marginTop: "10%",
               marginBottom: "10%",
             }}
             alt="Your logo."
             src={home_system2}
           />
-          <Typography
-            style={{
-              color: "#000000",
-              fontSize: "14px",
-              letterSpacing: "0.05em",
-              textAlign: "left",
-            }}
-          >
+          <Typography className={classes.text1}>
             {t(
               "Systemy chroniące przed włamaniem i nieautoryzowanym dostępem. Symulacja obecności w budynku. Monitorowanie poziomu jakości powietrza w pomieszczeniu."
             )}
           </Typography>
         </div>
         <div className={classes.div}>
-          <Typography
-            style={{
-              color: "#FFA033",
-              fontSize: "28px",
-              letterSpacing: "0.15em",
-            }}
-          >
-            {t("MONITORING")}
-          </Typography>
+          <Typography className={classes.header2}>{t("MONITORING")}</Typography>
           <Box
             component="img"
             sx={{
-              height: "323px",
-              width: "288px",
+              height: fonts.imgHeight,
+              width: fonts.imgWidth,
               marginTop: "10%",
               marginBottom: "10%",
             }}
             alt="Your logo."
             src={home_system3}
           />
-          <Typography
-            style={{
-              color: "#000000",
-              fontSize: "14px",
-              letterSpacing: "0.05em",
-              textAlign: "left",
-              marginRight: "2%",
-            }}
-          >
+          <Typography className={classes.text1}>
             {t(
               "Integracja monitoringu z aplikacją zarządzania budynku. Automatyzacja bram wjazdowych za pomocą rozpoznawania tablic rejestracyjnych."
             )}

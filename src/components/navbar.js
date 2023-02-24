@@ -5,6 +5,21 @@ import { Link, useLocation } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 import { CircleFlag } from "react-circle-flags";
 import { useTranslation } from "react-i18next";
+import { isMobile } from "react-device-detect";
+const fonts = {
+  buttonText: "1rem !important",
+  logoWidth: 300,
+  logoHeight: 200,
+  flagHeight: 16,
+  menuMinWidth: "25%",
+};
+if (isMobile) {
+  fonts.buttonText = "2rem !important";
+  fonts.logoWidth = 600;
+  fonts.logoHeight = 400;
+  fonts.flagHeight = 32;
+  fonts.menuMinWidth = "50%";
+}
 
 const useStyles = makeStyles({
   appbar: {
@@ -28,14 +43,14 @@ const useStyles = makeStyles({
     borderTopRightRadius: "0 !important",
     borderBottomRightRadius: "0 !important",
     background: "#bcb9ad !important",
-    minWidth: "25vw",
+    minWidth: fonts.menuMinWidth,
     // maxWidth: "50vw",
     marginLeft: "auto",
     display: "flex",
     justifyContent: "space-around",
   },
   buttonText: {
-    fontSize: "24px",
+    fontSize: fonts.buttonText,
   },
   flags: {
     color: "white !important",
@@ -54,7 +69,11 @@ function Navbar(props) {
   return (
     <div className={classes.appbar}>
       {usePathname() === "/" && (
-        <CatImg height={200} width={300} className={classes.logo} />
+        <CatImg
+          height={fonts.logoHeight}
+          width={fonts.logoWidth}
+          className={classes.logo}
+        />
       )}
       <Paper className={classes.menu}>
         <Button
@@ -95,7 +114,7 @@ function Navbar(props) {
             i18n.changeLanguage("EN");
           }}
         >
-          <CircleFlag countryCode="gb" height="16" />
+          <CircleFlag countryCode="gb" height={fonts.flagHeight} />
         </Button>
         <Button
           className={classes.flags}
@@ -103,7 +122,7 @@ function Navbar(props) {
             i18n.changeLanguage("PL");
           }}
         >
-          <CircleFlag countryCode="pl" height="16" />
+          <CircleFlag countryCode="pl" height={fonts.flagHeight} />
         </Button>
       </Paper>
     </div>

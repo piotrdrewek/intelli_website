@@ -6,6 +6,19 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { useTranslation } from "react-i18next";
+import { isMobile } from "react-device-detect";
+const fonts = {
+  menuText: "14px !important",
+  svgIcon: "1.5rem !important",
+  intelliText: "20px !important",
+  adressText: "10px !important",
+};
+if (isMobile) {
+  fonts.menuText = "28px !important";
+  fonts.svgIcon = "3rem !important";
+  fonts.intelliText = "30px !important";
+  fonts.adressText = "20px rem !important";
+}
 
 const useStyles = makeStyles({
   menu: {
@@ -24,6 +37,9 @@ const useStyles = makeStyles({
     color: "#4E4E4E !important",
     letterSpacing: "0.3rem !important",
   },
+  menuText: {
+    fontSize: fonts.menuText,
+  },
   icons: {
     display: "flex",
     flexDirection: "row",
@@ -31,6 +47,10 @@ const useStyles = makeStyles({
     height: "10vh !important",
     justifyContent: "center",
     alignContent: "center",
+  },
+  svgIcon: {
+    fontSize: fonts.svgIcon,
+    fill: "black !important",
   },
   left: {
     marginLeft: "5% !important",
@@ -47,13 +67,11 @@ const useStyles = makeStyles({
     fill: "black !important",
   },
   madeBy: {
-    // marginRight: "5% !important",
     display: "flex",
     flexDirection: "row",
     color: "black",
     justifyContent: "flex-start",
     alignItems: "flex-end",
-    // flexWrap: "wrap",
     fontSize: "0.5rem !important",
     textAlign: "right",
     minHeight: "15vh",
@@ -68,18 +86,25 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    // marginRight: "5% !important",
+  },
+  intelliText: {
+    fontSize: fonts.intelliText,
+    marginBottom: "0.5rem",
+    color: "#2F2F2F",
+    letterSpacing: "0.25em",
+  },
+  adressText: {
+    fontSize: fonts.adressText,
   },
 });
 
 function Footer(props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const classes = useStyles();
   return (
     <div className={props.className}>
       <div className={classes.left}>
         <div className={classes.menu}>
-          {/* <Typography color="white">MENU</Typography> */}
           <Button
             component={Link}
             to={"/about"}
@@ -88,7 +113,7 @@ function Footer(props) {
             className={classes.menuButtons}
             onClick={() => window.scrollTo(0, 0)}
           >
-            <Typography style={{ fontSize: "0.9rem" }}>{t("o nas")}</Typography>
+            <Typography className={classes.menuText}>{t("o nas")}</Typography>
           </Button>
           <Button
             component={Link}
@@ -98,9 +123,7 @@ function Footer(props) {
             className={classes.menuButtons}
             onClick={() => window.scrollTo(0, 0)}
           >
-            <Typography style={{ fontSize: "0.9rem" }}>
-              {t("kariera")}
-            </Typography>
+            <Typography className={classes.menuText}>{t("kariera")}</Typography>
           </Button>
           <Button
             component={Link}
@@ -110,9 +133,7 @@ function Footer(props) {
             className={classes.menuButtons}
             onClick={() => window.scrollTo(0, 0)}
           >
-            <Typography style={{ fontSize: "0.9rem" }}>
-              {t("kontakt")}
-            </Typography>
+            <Typography className={classes.menuText}>{t("kontakt")}</Typography>
           </Button>
         </div>
         <div className={classes.icons}>
@@ -122,40 +143,30 @@ function Footer(props) {
               "https://instagram.com/intelli_automation?igshid=YmMyMTA2M2Y="
             }
             target="_blank"
-            // disableTouchRipple="true"
             style={{ borderRadius: 0 }}
           >
-            <InstagramIcon style={{ fill: "black" }} />
+            <InstagramIcon className={classes.svgIcon} />
           </IconButton>
           <IconButton
             aria-label="face"
             href={"https://www.facebook.com/profile.php?id=100088184147780"}
             target="_blank"
-            // disableTouchRipple="true"
             style={{ borderRadius: 0 }}
           >
-            <FacebookIcon style={{ fill: "black" }} />
+            <FacebookIcon className={classes.svgIcon} />
           </IconButton>
           <IconButton
             aria-label="linkedin"
             href={"https://www.linkedin.com/company/intelliautomation/"}
             target="_blank"
-            // disableTouchRipple="true"
             style={{ borderRadius: 0 }}
           >
-            <LinkedInIcon style={{ fill: "black" }} />
+            <LinkedInIcon className={classes.svgIcon} />
           </IconButton>
         </div>
       </div>
       <div className={classes.info}>
-        <Typography
-          style={{
-            fontSize: "20px",
-            marginBottom: "0.5rem",
-            color: "#2F2F2F",
-            letterSpacing: "0.25em",
-          }}
-        >
+        <Typography className={classes.intelliText}>
           INTELLI AUTOMATION SP. Z O.O.
         </Typography>
         <div className={classes.contactInfo}>
@@ -167,11 +178,11 @@ function Footer(props) {
               letterSpacing: "0.15em",
             }}
           >
-            <Typography style={{ fontSize: "0.6rem" }}>
+            <Typography className={classes.adressText}>
               UL. PODJAZD 1/2,
             </Typography>
-            <Typography style={{ fontSize: "0.6rem" }}>81-805 SOPOT</Typography>
-            <Typography style={{ fontSize: "0.6rem" }}>
+            <Typography className={classes.adressText}>81-805 SOPOT</Typography>
+            <Typography className={classes.adressText}>
               {t("POLSKA")}
             </Typography>
           </div>
@@ -183,10 +194,10 @@ function Footer(props) {
               letterSpacing: "0.15em",
             }}
           >
-            <Typography style={{ fontSize: "0.6rem" }}>
+            <Typography className={classes.adressText}>
               NIP : 5851499315
             </Typography>
-            <Typography style={{ fontSize: "0.6rem" }}>
+            <Typography className={classes.adressText}>
               KRS : 0001004360
             </Typography>
           </div>

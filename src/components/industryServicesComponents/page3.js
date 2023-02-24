@@ -2,6 +2,15 @@ import React from "react";
 import { Paper, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useTranslation } from "react-i18next";
+import { isMobile } from "react-device-detect";
+const fonts = {
+  header1: "36px !important",
+  text1: "24px !important",
+};
+if (isMobile) {
+  fonts.header1 = "72px !important";
+  fonts.text1 = "48px !important";
+}
 
 const useStyles = makeStyles({
   app: {
@@ -12,28 +21,6 @@ const useStyles = makeStyles({
     background: "rgba(128, 128, 128, 0) !important",
     textAlign: "center",
   },
-
-  content1: {
-    display: "flex",
-    justifyContent: "space-between",
-    flexWrap: "wrap",
-    gridArea: "r-line1 / c-line1 / r-line3 / c-line3",
-    background: "rgba(128, 128, 128, 0) !important",
-    height: "100vh",
-  },
-  content2: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    justifyContent: "flex-end",
-    flexWrap: "wrap",
-    gridArea: "r-line3 / c-line1 / r-line4 / c-line3",
-    height: "100vh",
-    backgroundColor: "#cccccc !important",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "top center",
-  },
   content3: {
     display: "flex",
     flexDirection: "column",
@@ -42,47 +29,6 @@ const useStyles = makeStyles({
     gridArea: "r-line4 / c-line1 / r-line5 / c-line3",
     background: "rgba(128, 128, 128, 0) !important",
     height: "100vh",
-  },
-  content4: {
-    display: "flex",
-    justifyContent: "space-between",
-    flexWrap: "wrap",
-    gridArea: "r-line5 / c-line1 / r-line6 / c-line3",
-    height: "100vh",
-    backgroundColor: "#212121!important",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "top center",
-  },
-  content5: {
-    display: "flex",
-    justifyContent: "space-between",
-    flexWrap: "wrap",
-    gridArea: "r-line6 / c-line1 / r-line7 / c-line3",
-    height: "85vh",
-    backgroundColor: "#cccccc!important",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "top center",
-  },
-  half1: {
-    backgroundColor: "#cccccc",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "top center",
-    height: "100%",
-    width: "50%",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    justifyContent: "center",
-  },
-  half2: {
-    height: "100vh",
-    width: "50%",
-    display: "flex",
-    alignItems: "flex-end",
-    justifyContent: "center",
   },
   half3: {
     backgroundColor: "#cccccc",
@@ -95,69 +41,39 @@ const useStyles = makeStyles({
     alignItems: "flex-end",
     justifyContent: "center",
   },
-  half4: {
-    height: "100vh",
-    width: "50%",
-    display: "flex",
-    alignItems: "flex-end",
-    justifyContent: "center",
+  header1: {
+    color: "#FFA033",
+    fontSize: fonts.header1,
+    letterSpacing: "0.15em",
+    marginLeft: "10% !important",
+    marginRight: "10% !important",
   },
-  half5: {
-    backgroundColor: "#cccccc",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "top center",
-    height: "85vh",
-    // width: "50%",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  line1: {
-    display: "flex",
-    flexDirection: "row",
-  },
-  footer: {
-    display: "flex",
-    backgroundColor: "white !important",
-    alignItems: "center",
-    justifyContent: "space-between",
-    fontWeight: "bold",
-    gridArea: "r-line7 / c-line1 / r-line8 / c-line3",
-    minHeight: " 15vh",
-    width: "100%",
+
+  text1: {
+    color: "#000000",
+    fontSize: fonts.text1,
+    letterSpacing: "0.1em",
+    marginLeft: "10% !important",
+    marginRight: "10% !important",
   },
 });
 
 export default function Page3(props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const classes = useStyles();
   return (
     <Paper className={classes.content3} style={{ backgroundColor: "white" }}>
       <div>
         <Typography
+          className={classes.header1}
           style={{
-            color: "#FFA033",
-            fontSize: "36px",
-            letterSpacing: "0.15em",
-            marginLeft: "10%",
-            marginRight: "10%",
             marginTop: "5%",
             textAlign: "left",
           }}
         >
           {t("KONCEPCJA")}
         </Typography>
-        <Typography
-          style={{
-            color: "#000000",
-            fontSize: "24px",
-            letterSpacing: "0.1em",
-            marginLeft: "10%",
-            marginRight: "10%",
-          }}
-        >
+        <Typography className={classes.text1}>
           {t(
             "Doradztwo w zakresie określenia potrzeb klienta dotyczących możliwości optymalizacji procesów poprzez dobranie odpowiedniego typu systemu automatycznego"
           )}
@@ -165,26 +81,14 @@ export default function Page3(props) {
       </div>
       <div>
         <Typography
+          className={classes.header1}
           style={{
-            color: "#FFA033",
-            fontSize: "36px",
-            letterSpacing: "0.15em",
-            marginLeft: "10%",
-            marginRight: "10%",
             textAlign: "right",
           }}
         >
           {t("PROJEKT")}
         </Typography>
-        <Typography
-          style={{
-            color: "#000000",
-            fontSize: "24px",
-            letterSpacing: "0.1em",
-            marginLeft: "10%",
-            marginRight: "10%",
-          }}
-        >
+        <Typography className={classes.text1}>
           {t(
             "Posiadamy odpowiednie kompetencje oraz zasoby umożliwiające przeprowadzenie kompleksowego procesu projektowego systemu."
           )}
@@ -192,26 +96,14 @@ export default function Page3(props) {
       </div>
       <div>
         <Typography
+          className={classes.header1}
           style={{
-            color: "#FFA033",
-            fontSize: "36px",
-            letterSpacing: "0.15em",
-            marginLeft: "10%",
-            marginRight: "10%",
             textAlign: "left",
           }}
         >
           {t("SZAFY STEROWNICZE")}
         </Typography>
-        <Typography
-          style={{
-            color: "#000000",
-            fontSize: "24px",
-            letterSpacing: "0.1em",
-            marginLeft: "10%",
-            marginRight: "10%",
-          }}
-        >
+        <Typography className={classes.text1}>
           {t(
             "Na podstawie schematów elektrycznych przeprowadzamy kompleksową prefabrykacje szaf sterowniczych."
           )}
@@ -219,24 +111,16 @@ export default function Page3(props) {
       </div>
       <div>
         <Typography
+          className={classes.header1}
           style={{
-            color: "#FFA033",
-            fontSize: "36px",
-            letterSpacing: "0.15em",
-            marginLeft: "10%",
-            marginRight: "10%",
             textAlign: "right",
           }}
         >
           {t("MONTAŻ")}
         </Typography>
         <Typography
+          className={classes.text1}
           style={{
-            color: "#000000",
-            fontSize: "24px",
-            letterSpacing: "0.1em",
-            marginLeft: "10%",
-            marginRight: "10%",
             marginBottom: "5%",
           }}
         >

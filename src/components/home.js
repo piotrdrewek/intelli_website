@@ -7,7 +7,13 @@ import industry from "./img/industry.png";
 import Footer from "./footer";
 import Navbar from "./navbar";
 import { useTranslation } from "react-i18next";
-
+import { isMobile } from "react-device-detect";
+const fonts = {
+  buttonText: "1rem !important",
+};
+if (isMobile) {
+  fonts.buttonText = "2rem !important";
+}
 const useStyles = makeStyles({
   app: {
     display: "grid",
@@ -49,7 +55,7 @@ const useStyles = makeStyles({
   buttonText: {
     fontWeight: "bold",
     textAlign: "center",
-    fontSize: "20px",
+    fontSize: fonts.buttonText,
     // width: "20vh",
   },
   footer: {
@@ -65,7 +71,7 @@ const useStyles = makeStyles({
 });
 
 export default function Home(props) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const classes = useStyles();
   return (
     <div className={classes.app}>
