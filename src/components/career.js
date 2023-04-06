@@ -5,19 +5,8 @@ import about_background2 from "./img/about_background2.png";
 import Footer from "./footer";
 import Navbar from "./navbar";
 import { useTranslation } from "react-i18next";
-import { isMobile } from "react-device-detect";
-const fonts = {
-  header1: "30px !important",
-  text1: "18px !important",
-  text2: "18px !important",
-  ButtonText: "22px !important",
-};
-if (isMobile) {
-  fonts.header1 = "60px !important";
-  fonts.text1 = "36px !important";
-  fonts.text2 = "36px !important";
-  fonts.ButtonText = "44px !important";
-}
+import { useState } from "react";
+import { useEffect } from "react";
 
 const useStyles = makeStyles({
   app: {
@@ -62,22 +51,21 @@ const useStyles = makeStyles({
   footer: {
     display: "flex",
     backgroundColor: "#white !important",
-    alignItems: "center",
-    justifyContent: "space-between",
+    alignItems: "flex-start",
+    justifyContent: "flex-end",
     fontWeight: "bold",
     gridArea: "r-lin2 / c-line1 / r-line3 / c-line3",
-    height: " 15vh",
+    minHeight: " 15vh",
+    width: "100%",
+    flexDirection: "column",
   },
   header1: {
     color: "#FFA033",
-    fontSize: fonts.header1,
     letterSpacing: "0.15em",
     textAlign: "left",
-    marginTop: "20% !important",
   },
   text1: {
     color: "#4E4E4E",
-    fontSize: fonts.text1,
     letterSpacing: "0.15em",
     textAlign: "left",
     marginLeft: "10% !important",
@@ -85,7 +73,6 @@ const useStyles = makeStyles({
   },
   text2: {
     color: "#FFCF40",
-    fontSize: fonts.text2,
     letterSpacing: "0.15em",
     textAlign: "left",
     marginLeft: "10% !important",
@@ -93,7 +80,6 @@ const useStyles = makeStyles({
   },
   ButtonText: {
     color: "#FFFFFF",
-    fontSize: fonts.ButtonText,
     letterSpacing: "0.2em",
   },
 });
@@ -101,6 +87,26 @@ const useStyles = makeStyles({
 export default function Career(props) {
   const { t } = useTranslation();
   const classes = useStyles();
+  const [header1Size, setHeader1Size] = useState(
+    props.isMobile ? "15px" : "30px"
+  );
+  const [header1MarginTop, setHeader1MarginTop] = useState(
+    props.isMobile ? "40%" : "20%"
+  );
+  const [text1Size, setText1Size] = useState(props.isMobile ? "15px" : "30px");
+  const [text2Size, setText2Size] = useState(props.isMobile ? "15px" : "30px");
+  const [buttonTextSize, setButtonTextSize] = useState(
+    props.isMobile ? "11px" : "22px"
+  );
+
+  useEffect(() => {
+    setHeader1Size(props.isMobile ? "15px" : "30px");
+    setHeader1MarginTop(props.isMobile ? "40%" : "20%");
+    setText1Size(props.isMobile ? "9px" : "18px");
+    setText2Size(props.isMobile ? "9px" : "18px");
+    setButtonTextSize(props.isMobile ? "11px" : "22px");
+  }, [props.isMobile]);
+
   return (
     <div className={classes.app}>
       <Paper className={classes.content1}>
@@ -108,15 +114,27 @@ export default function Career(props) {
           className={classes.half1}
           style={{ backgroundColor: "white", width: "40%" }}
         >
-          <Typography className={classes.header1}>
+          <Typography
+            className={classes.header1}
+            style={{
+              fontSize: `${header1Size}`,
+              marginTop: `${header1MarginTop}`,
+            }}
+          >
             {t("PRACUJ Z NAMI")}
           </Typography>
-          <Typography className={classes.text1}>
+          <Typography
+            className={classes.text1}
+            style={{ fontSize: `${text1Size}` }}
+          >
             {t(
               "W związku z ciągłym rozwojem, poszukujemy nowych członków naszego zespołu."
             )}
           </Typography>
-          <Typography className={classes.text2}>
+          <Typography
+            className={classes.text2}
+            style={{ fontSize: `${text2Size}` }}
+          >
             {t("Uważasz, że mógłbyś wnieść swoją wartość do naszej firmy?")}
           </Typography>
           <Button variant="contained" className={classes.button}>
@@ -125,7 +143,10 @@ export default function Career(props) {
               target="_blank"
               style={{ textDecoration: "none", color: "black" }}
             >
-              <Typography className={classes.ButtonText}>
+              <Typography
+                className={classes.ButtonText}
+                style={{ fontSize: `${buttonTextSize}` }}
+              >
                 {t("APLIKUJ")}
               </Typography>
             </a>
@@ -137,8 +158,8 @@ export default function Career(props) {
         ></div>
       </Paper>
 
-      <Navbar />
-      <Footer className={classes.footer} />
+      <Navbar isMobile={props.isMobile} />
+      <Footer className={classes.footer} isMobile={props.isMobile} />
     </div>
   );
 }

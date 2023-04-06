@@ -3,15 +3,8 @@ import { Paper, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import home_background3 from "../img/home_background3.png";
 import { useTranslation } from "react-i18next";
-import { isMobile } from "react-device-detect";
-const fonts = {
-  header1: "54px !important",
-  text1: "24px !important",
-};
-if (isMobile) {
-  fonts.header1 = "90px !important";
-  fonts.text1 = "48px !important";
-}
+import { useState } from "react";
+import { useEffect } from "react";
 
 const useStyles = makeStyles({
   content5: {
@@ -36,14 +29,12 @@ const useStyles = makeStyles({
   },
   header1: {
     color: "#FFA033",
-    fontSize: fonts.header1,
     letterSpacing: "0.15em",
     marginLeft: "10% !important",
     textAlign: "left",
   },
   text1: {
     color: "#484848",
-    fontSize: fonts.text1,
     letterSpacing: "0.05em",
     marginTop: "5% !important",
     marginBottom: "5% !important",
@@ -56,6 +47,14 @@ const useStyles = makeStyles({
 export default function Page5(props) {
   const { t } = useTranslation();
   const classes = useStyles();
+  const [header1Size, setHeader1Size] = useState(
+    props.isMobile ? "22px" : "54px"
+  );
+  const [textSize, setTextSize] = useState(props.isMobile ? "12px" : "24px");
+  useEffect(() => {
+    setHeader1Size(props.isMobile ? "22px" : "54px");
+    setTextSize(props.isMobile ? "12px" : "24px");
+  }, [props.isMobile]);
   return (
     <Paper className={classes.content5}>
       <div
@@ -68,10 +67,16 @@ export default function Page5(props) {
           backgroundColor: "white",
         }}
       >
-        <Typography className={classes.header1}>
+        <Typography
+          className={classes.header1}
+          style={{ fontSize: `${header1Size}` }}
+        >
           {t("Aplikacja użykownika")}
         </Typography>
-        <Typography className={classes.text1}>
+        <Typography
+          className={classes.text1}
+          style={{ fontSize: `${textSize}` }}
+        >
           {t(
             "Wygodne sterowanie i monitorowanie funkcji budynku za pomocą jednej aplikacji na smartphone, tablet lub komputer, w każdym miejscu na świecie."
           )}

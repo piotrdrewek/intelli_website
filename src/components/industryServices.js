@@ -20,12 +20,13 @@ const useStyles = makeStyles({
   footer: {
     display: "flex",
     backgroundColor: "white !important",
-    alignItems: "center",
-    justifyContent: "space-between",
+    alignItems: "flex-start",
+    justifyContent: "flex-end",
     fontWeight: "bold",
     gridArea: "r-line7 / c-line1 / r-line8 / c-line3",
     minHeight: " 15vh",
     width: "100%",
+    flexDirection: "column",
   },
 });
 
@@ -33,13 +34,13 @@ export default function IndustryServices(props) {
   const classes = useStyles();
   return (
     <div className={classes.app}>
-      <Page1 />
-      <Page2 />
-      <Page3 />
-      <Page4 />
-      <Page5 />
-      <Navbar />
-      <Footer className={classes.footer} />
+      <Page1 isMobile={props.isMobile} />
+      <Page2 isMobile={props.isMobile} />
+      <Page3 isMobile={props.isMobile} />
+      <Page4 isMobile={props.isMobile} />
+      <Page5 isMobile={props.isMobile} />
+      <Navbar isMobile={props.isMobile} />
+      <Footer isMobile={props.isMobile} className={classes.footer} />
     </div>
   );
 }

@@ -7,13 +7,9 @@ import industry from "./img/industry.png";
 import Footer from "./footer";
 import Navbar from "./navbar";
 import { useTranslation } from "react-i18next";
-import { isMobile } from "react-device-detect";
-const fonts = {
-  buttonText: "1rem !important",
-};
-if (isMobile) {
-  fonts.buttonText = "2rem !important";
-}
+import { useState } from "react";
+import { useEffect } from "react";
+
 const useStyles = makeStyles({
   app: {
     display: "grid",
@@ -47,32 +43,39 @@ const useStyles = makeStyles({
     color: "#FFFFFF !important",
     borderRadius: "30px !important",
     marginBottom: "25% !important",
-    // width: "30vh",
     fontWeight: "bold",
     size: "large",
-    border: "3px solid !important",
   },
   buttonText: {
     fontWeight: "bold",
     textAlign: "center",
-    fontSize: fonts.buttonText,
-    // width: "20vh",
   },
   footer: {
     display: "flex",
     backgroundColor: "white !important",
-    alignItems: "center",
-    justifyContent: "space-between",
+    alignItems: "flex-start",
+    justifyContent: "flex-end",
     fontWeight: "bold",
     gridArea: "r-line3 / c-line1 / r-line4 / c-line3",
-    minHeight: " 15vh",
+    minHeight: "15vh",
     width: "100%",
+    flexDirection: "column",
   },
 });
 
 export default function Home(props) {
   const { t } = useTranslation();
   const classes = useStyles();
+  const [fontSize, setFontSize] = useState(props.isMobile ? "0.5rem" : "1rem");
+  const [buttonBorderSize, setbuttonBorderSize] = useState(
+    props.isMobile ? "1.5px solid" : "3px solid"
+  );
+
+  useEffect(() => {
+    setFontSize(props.isMobile ? "0.5rem" : "1rem");
+    setbuttonBorderSize(props.isMobile ? "1.5px solid" : "3px solid");
+  }, [props.isMobile]);
+
   return (
     <div className={classes.app}>
       <Paper className={classes.content}>
@@ -85,8 +88,12 @@ export default function Home(props) {
             component={Link}
             to={"/industryServices"}
             className={classes.button}
+            style={{ border: `${buttonBorderSize}` }}
           >
-            <Typography className={classes.buttonText}>
+            <Typography
+              className={classes.buttonText}
+              style={{ fontSize: `${fontSize}` }}
+            >
               {t("AUTOMATYKA PRZEMYSŁOWA")}
             </Typography>
           </Button>
@@ -100,15 +107,19 @@ export default function Home(props) {
             component={Link}
             to={"/homeServices"}
             className={classes.button}
+            style={{ border: `${buttonBorderSize}` }}
           >
-            <Typography className={classes.buttonText}>
+            <Typography
+              className={classes.buttonText}
+              style={{ fontSize: `${fontSize}` }}
+            >
               {t("AUTOMATYKA DOMOWA")}
             </Typography>
           </Button>
         </div>
       </Paper>
-      <Navbar />
-      <Footer className={classes.footer} />
+      <Navbar isMobile={props.isMobile} />
+      <Footer isMobile={props.isMobile} className={classes.footer} />
     </div>
   );
 }

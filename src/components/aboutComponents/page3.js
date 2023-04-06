@@ -3,19 +3,8 @@ import { makeStyles } from "@mui/styles";
 import { Paper, Typography, Button } from "@mui/material";
 import about_background2 from "../img/about_background2.png";
 import { useTranslation } from "react-i18next";
-import { isMobile } from "react-device-detect";
-const fonts = {
-  header1: "30px !important",
-  text1: "18px !important",
-  buttonText: "22px !important",
-  contactText: "30px !important",
-};
-if (isMobile) {
-  fonts.header1 = "60px !important";
-  fonts.text1 = "36px !important";
-  fonts.buttonText = "44px !important";
-  fonts.contactText = "60px !important";
-}
+import { useState } from "react";
+import { useEffect } from "react";
 
 const useStyles = makeStyles({
   content3: {
@@ -59,14 +48,12 @@ const useStyles = makeStyles({
   },
   header1: {
     color: "#FFA033",
-    fontSize: fonts.header1,
     letterSpacing: "0.15em",
     textAlign: "left",
     marginTop: "10% !important",
   },
   text1: {
     color: "#4E4E4E",
-    fontSize: fonts.text1,
     letterSpacing: "0.15em",
     textAlign: "left",
     marginLeft: "10% !important",
@@ -74,7 +61,6 @@ const useStyles = makeStyles({
   },
   text2: {
     color: "#FFCF40",
-    fontSize: fonts.text1,
     letterSpacing: "0.15em",
     textAlign: "left",
     marginLeft: "10% !important",
@@ -82,35 +68,57 @@ const useStyles = makeStyles({
   },
   buttonText: {
     color: "#FFFFFF",
-    fontSize: fonts.buttonText,
     letterSpacing: "0.2em",
   },
   contactText: {
     color: "#000000",
-    fontSize: fonts.contactText,
     letterSpacing: "0.15em",
   },
 });
 
 export default function Page3(props) {
   const { t } = useTranslation();
-
   const classes = useStyles();
+  const [header1Size, setHeader1Size] = useState(
+    props.isMobile ? "15px" : "30px"
+  );
+  const [text1Size, setText1Size] = useState(props.isMobile ? "9px" : "18px");
+  const [buttonTextSize, setButtonTextSize] = useState(
+    props.isMobile ? "11px" : "22px"
+  );
+  const [contactTextSize, setContactTextSize] = useState(
+    props.isMobile ? "15px" : "30px"
+  );
+  useEffect(() => {
+    setHeader1Size(props.isMobile ? "15px" : "30px");
+    setText1Size(props.isMobile ? "9px" : "18px");
+    setButtonTextSize(props.isMobile ? "11px" : "22px");
+    setContactTextSize(props.isMobile ? "15px" : "30px");
+  }, [props.isMobile]);
   return (
     <Paper className={classes.content3}>
       <div
         className={classes.half3}
         style={{ backgroundColor: "white", width: "40%" }}
       >
-        <Typography className={classes.header1}>
+        <Typography
+          className={classes.header1}
+          style={{ fontSize: `${header1Size}` }}
+        >
           {t("PRACUJ Z NAMI")}
         </Typography>
-        <Typography className={classes.text1}>
+        <Typography
+          className={classes.text1}
+          style={{ fontSize: `${text1Size}` }}
+        >
           {t(
             "W związku z ciągłym rozwojem, poszukujemy nowych członków naszego zespołu."
           )}
         </Typography>
-        <Typography className={classes.text2}>
+        <Typography
+          className={classes.text2}
+          style={{ fontSize: `${text1Size}` }}
+        >
           {t("Uważasz, że mógłbyś wnieść swoją wartość do naszej firmy?")}
         </Typography>
         <Button variant="contained" className={classes.button}>
@@ -119,7 +127,10 @@ export default function Page3(props) {
             target="_blank"
             style={{ textDecoration: "none", color: "black" }}
           >
-            <Typography className={classes.buttonText}>
+            <Typography
+              className={classes.buttonText}
+              style={{ fontSize: `${buttonTextSize}` }}
+            >
               {t("APLIKUJ")}
             </Typography>
           </a>
@@ -130,10 +141,17 @@ export default function Page3(props) {
         style={{ backgroundImage: `url(${about_background2})`, width: "60%" }}
       ></div>
       <Paper className={classes.content4}>
-        <Typography className={classes.contactText}>
+        <Typography
+          className={classes.contactText}
+          style={{ fontSize: `${contactTextSize}` }}
+        >
           BIURO@INTELLI.COM.PL
         </Typography>
-        <Typography className={classes.contactText}>
+
+        <Typography
+          className={classes.contactText}
+          style={{ fontSize: `${contactTextSize}` }}
+        >
           (+48) 607 683 704
         </Typography>
       </Paper>

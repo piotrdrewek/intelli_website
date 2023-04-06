@@ -2,15 +2,8 @@ import React from "react";
 import { Paper, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useTranslation } from "react-i18next";
-import { isMobile } from "react-device-detect";
-const fonts = {
-  header1: "36px !important",
-  text1: "24px !important",
-};
-if (isMobile) {
-  fonts.header1 = "72px !important";
-  fonts.text1 = "48px !important";
-}
+import { useState } from "react";
+import { useEffect } from "react";
 
 const useStyles = makeStyles({
   app: {
@@ -43,7 +36,6 @@ const useStyles = makeStyles({
   },
   header1: {
     color: "#FFA033",
-    fontSize: fonts.header1,
     letterSpacing: "0.15em",
     marginLeft: "10% !important",
     marginRight: "10% !important",
@@ -51,7 +43,6 @@ const useStyles = makeStyles({
 
   text1: {
     color: "#000000",
-    fontSize: fonts.text1,
     letterSpacing: "0.1em",
     marginLeft: "10% !important",
     marginRight: "10% !important",
@@ -61,6 +52,15 @@ const useStyles = makeStyles({
 export default function Page3(props) {
   const { t } = useTranslation();
   const classes = useStyles();
+  const [header1Size, setHeader1Size] = useState(
+    props.isMobile ? "18px" : "36px"
+  );
+  const [textSize, setTextSize] = useState(props.isMobile ? "12px" : "24px");
+  useEffect(() => {
+    setHeader1Size(props.isMobile ? "18px" : "36px");
+    setTextSize(props.isMobile ? "12px" : "24px");
+  }, [props.isMobile]);
+
   return (
     <Paper className={classes.content3} style={{ backgroundColor: "white" }}>
       <div>
@@ -69,11 +69,15 @@ export default function Page3(props) {
           style={{
             marginTop: "5%",
             textAlign: "left",
+            fontSize: `${header1Size}`,
           }}
         >
           {t("KONCEPCJA")}
         </Typography>
-        <Typography className={classes.text1}>
+        <Typography
+          className={classes.text1}
+          style={{ fontSize: `${textSize}` }}
+        >
           {t(
             "Doradztwo w zakresie określenia potrzeb klienta dotyczących możliwości optymalizacji procesów poprzez dobranie odpowiedniego typu systemu automatycznego"
           )}
@@ -84,11 +88,15 @@ export default function Page3(props) {
           className={classes.header1}
           style={{
             textAlign: "right",
+            fontSize: `${header1Size}`,
           }}
         >
           {t("PROJEKT")}
         </Typography>
-        <Typography className={classes.text1}>
+        <Typography
+          className={classes.text1}
+          style={{ fontSize: `${textSize}` }}
+        >
           {t(
             "Posiadamy odpowiednie kompetencje oraz zasoby umożliwiające przeprowadzenie kompleksowego procesu projektowego systemu."
           )}
@@ -99,11 +107,15 @@ export default function Page3(props) {
           className={classes.header1}
           style={{
             textAlign: "left",
+            fontSize: `${header1Size}`,
           }}
         >
           {t("SZAFY STEROWNICZE")}
         </Typography>
-        <Typography className={classes.text1}>
+        <Typography
+          className={classes.text1}
+          style={{ fontSize: `${textSize}` }}
+        >
           {t(
             "Na podstawie schematów elektrycznych przeprowadzamy kompleksową prefabrykacje szaf sterowniczych."
           )}
@@ -114,6 +126,7 @@ export default function Page3(props) {
           className={classes.header1}
           style={{
             textAlign: "right",
+            fontSize: `${header1Size}`,
           }}
         >
           {t("MONTAŻ")}
@@ -122,6 +135,7 @@ export default function Page3(props) {
           className={classes.text1}
           style={{
             marginBottom: "5%",
+            fontSize: `${textSize}`,
           }}
         >
           {t(

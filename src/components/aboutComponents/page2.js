@@ -4,19 +4,8 @@ import { Paper, Typography, Box } from "@mui/material";
 import about1 from "../img/about1.png";
 import about2 from "../img/about2.png";
 import { useTranslation } from "react-i18next";
-import { isMobile } from "react-device-detect";
-const fonts = {
-  header1: "42px !important",
-  text1: "21px !important",
-  photoHeight: "323px",
-  photoWidth: "292px",
-};
-if (isMobile) {
-  fonts.header1 = "70px !important";
-  fonts.text1 = "40px !important";
-  fonts.photoHeight = "650px";
-  fonts.photoWidth = "600px";
-}
+import { useState } from "react";
+import { useEffect } from "react";
 
 const useStyles = makeStyles({
   content2: {
@@ -38,34 +27,54 @@ const useStyles = makeStyles({
   header1: {
     width: "80%",
     color: "#FFCF40",
-    fontSize: fonts.header1,
     letterSpacing: "0.15em",
     textAlign: "left",
     marginLeft: "20% !important",
   },
   text1: {
     color: "#000000",
-    fontSize: fonts.text1,
     letterSpacing: "0.05em",
     textAlign: "left",
     marginLeft: "20% !important",
     marginRight: "10% !important",
   },
-  photo: {
-    height: fonts.photoHeight,
-    width: fonts.photoWidth,
-  },
+  photo: {},
 });
 
 export default function Page2(props) {
   const { t } = useTranslation();
   const classes = useStyles();
+  const [header1Size, setHeader1Size] = useState(
+    props.isMobile ? "21px" : "42px"
+  );
+  const [text1Size, setText1Size] = useState(props.isMobile ? "10px" : "21px");
+  const [photoHeight, setPhotoHeight] = useState(
+    props.isMobile ? "161px" : "323px"
+  );
+  const [photoWidth, setPhotoWidth] = useState(
+    props.isMobile ? "146px" : "292px"
+  );
+  useEffect(() => {
+    setHeader1Size(props.isMobile ? "21px" : "42px");
+    setText1Size(props.isMobile ? "10px" : "21px");
+    setPhotoWidth(props.isMobile ? "161px" : "323px");
+    setPhotoHeight(props.isMobile ? "146px" : "292px");
+  }, [props.isMobile]);
+
   return (
     <Paper className={classes.content2}>
       <div className={classes.half2} style={{ backgroundColor: "white" }}>
         {" "}
-        <Typography className={classes.header1}>{t("Nasza praca")}</Typography>
-        <Typography className={classes.text1}>
+        <Typography
+          className={classes.header1}
+          style={{ fontSize: `${header1Size}` }}
+        >
+          {t("Nasza praca")}
+        </Typography>
+        <Typography
+          className={classes.text1}
+          style={{ fontSize: `${text1Size}` }}
+        >
           {t(
             "Zajmujemy się całym procesem produkcyjnym związanym z dostarczeniem w pełni funkcjonalnego systemu automatyki, wspierającego funkcjonowanie magazynów, zakładów produkcyjnych i centrów dystrybucyjnych."
           )}
@@ -73,6 +82,7 @@ export default function Page2(props) {
         <Box
           component="img"
           className={classes.photo}
+          style={{ height: `${photoHeight}`, width: `${photoWidth}` }}
           alt="Your logo."
           src={about1}
         />
@@ -81,13 +91,20 @@ export default function Page2(props) {
         <Box
           component="img"
           className={classes.photo}
+          style={{ height: `${photoHeight}`, width: `${photoWidth}` }}
           alt="Your logo."
           src={about2}
         />
-        <Typography className={classes.header1}>{t("Nasza misja")}</Typography>
+        <Typography
+          className={classes.header1}
+          style={{ fontSize: `${header1Size}` }}
+        >
+          {t("Nasza misja")}
+        </Typography>
         <Typography
           className={classes.text1}
           style={{
+            fontSize: `${text1Size}`,
             marginBottom: "5%",
           }}
         >

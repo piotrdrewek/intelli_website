@@ -5,21 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 import { CircleFlag } from "react-circle-flags";
 import { useTranslation } from "react-i18next";
-import { isMobile } from "react-device-detect";
-const fonts = {
-  buttonText: "1rem !important",
-  logoWidth: 300,
-  logoHeight: 200,
-  flagHeight: 16,
-  menuMinWidth: "25%",
-};
-if (isMobile) {
-  fonts.buttonText = "2rem !important";
-  fonts.logoWidth = 600;
-  fonts.logoHeight = 400;
-  fonts.flagHeight = 32;
-  fonts.menuMinWidth = "50%";
-}
+import { useEffect, useState } from "react";
 
 const useStyles = makeStyles({
   appbar: {
@@ -43,15 +29,11 @@ const useStyles = makeStyles({
     borderTopRightRadius: "0 !important",
     borderBottomRightRadius: "0 !important",
     background: "#bcb9ad !important",
-    minWidth: fonts.menuMinWidth,
-    // maxWidth: "50vw",
     marginLeft: "auto",
     display: "flex",
     justifyContent: "space-around",
   },
-  buttonText: {
-    fontSize: fonts.buttonText,
-  },
+  buttonText: {},
   flags: {
     color: "white !important",
     minWidth: "0px !important",
@@ -66,12 +48,26 @@ const usePathname = () => {
 function Navbar(props) {
   const { t, i18n } = useTranslation();
   const classes = useStyles();
+  const [buttonTextSize, setButtonTextSize] = useState(
+    props.isMobile ? "0.5rem" : "1rem"
+  );
+  const [logoHeight, setlogoHeight] = useState(props.isMobile ? "100" : "200");
+  const [logoWidth, setlogoWidth] = useState(props.isMobile ? "150" : "300");
+  const [flagHeight, setFlagHeight] = useState(props.isMobile ? "8" : "16");
+
+  useEffect(() => {
+    setButtonTextSize(props.isMobile ? "0.5rem" : "1rem");
+    setlogoHeight(props.isMobile ? "100" : "200");
+    setlogoWidth(props.isMobile ? "150" : "300");
+    setFlagHeight(props.isMobile ? "8" : "16");
+  }, [props.isMobile]);
+
   return (
     <div className={classes.appbar}>
       {usePathname() === "/" && (
         <CatImg
-          height={fonts.logoHeight}
-          width={fonts.logoWidth}
+          height={`${logoHeight}`}
+          width={`${logoWidth}`}
           className={classes.logo}
         />
       )}
@@ -83,7 +79,10 @@ function Navbar(props) {
           size="large"
           disabled={usePathname() === "/"}
         >
-          <Typography className={classes.buttonText}>
+          <Typography
+            className={classes.buttonText}
+            style={{ fontSize: `${buttonTextSize}` }}
+          >
             {t("STRONA GŁÓWNA")}
           </Typography>
         </Button>
@@ -94,7 +93,12 @@ function Navbar(props) {
           size="large"
           disabled={usePathname() === "/about"}
         >
-          <Typography className={classes.buttonText}>{t("O NAS")}</Typography>
+          <Typography
+            className={classes.buttonText}
+            style={{ fontSize: `${buttonTextSize}` }}
+          >
+            {t("O NAS")}
+          </Typography>
         </Button>
         <Button
           component={Link}
@@ -103,7 +107,10 @@ function Navbar(props) {
           size="large"
           disabled={usePathname() === "/contact"}
         >
-          <Typography className={classes.buttonText}>
+          <Typography
+            className={classes.buttonText}
+            style={{ fontSize: `${buttonTextSize}` }}
+          >
             {" "}
             {t("KONTAKT")}
           </Typography>
@@ -114,7 +121,7 @@ function Navbar(props) {
             i18n.changeLanguage("EN");
           }}
         >
-          <CircleFlag countryCode="gb" height={fonts.flagHeight} />
+          <CircleFlag countryCode="gb" height={`${flagHeight}`} />
         </Button>
         <Button
           className={classes.flags}
@@ -122,7 +129,7 @@ function Navbar(props) {
             i18n.changeLanguage("PL");
           }}
         >
-          <CircleFlag countryCode="pl" height={fonts.flagHeight} />
+          <CircleFlag countryCode="pl" height={`${flagHeight}`} />
         </Button>
       </Paper>
     </div>

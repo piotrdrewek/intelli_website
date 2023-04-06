@@ -3,17 +3,8 @@ import { makeStyles } from "@mui/styles";
 import { Paper, Typography } from "@mui/material";
 import about_background1 from "../img/about_background1.png";
 import { useTranslation } from "react-i18next";
-import { isMobile } from "react-device-detect";
-const fonts = {
-  half1Width: "50%",
-  header1: "16px !important",
-  header2: "54px !important",
-};
-if (isMobile) {
-  fonts.header1 = "30px !important";
-  fonts.header2 = "100px !important";
-  fonts.half1Width = "100%";
-}
+import { useState } from "react";
+import { useEffect } from "react";
 
 const useStyles = makeStyles({
   content1: {
@@ -29,7 +20,7 @@ const useStyles = makeStyles({
   },
   half1: {
     height: "100vh",
-    width: fonts.half1Width,
+    width: "50%",
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
@@ -37,13 +28,11 @@ const useStyles = makeStyles({
   },
   header1: {
     color: "#FFA033",
-    fontSize: fonts.header1,
     letterSpacing: "0.3em",
     marginLeft: "10% !important",
   },
   header2: {
     color: "#FFA033",
-    fontSize: fonts.header2,
     letterSpacing: "0.15em",
     marginLeft: "10% !important",
   },
@@ -52,6 +41,18 @@ const useStyles = makeStyles({
 export default function Page1(props) {
   const { t } = useTranslation();
   const classes = useStyles();
+  const [header1Size, setHeader1Size] = useState(
+    props.isMobile ? "8px" : "16px"
+  );
+  const [header2Size, setHeader2Size] = useState(
+    props.isMobile ? "20px" : "54px"
+  );
+  const [textSize, setTextSize] = useState(props.isMobile ? "12px" : "24px");
+  useEffect(() => {
+    setHeader1Size(props.isMobile ? "8px" : "16px");
+    setHeader2Size(props.isMobile ? "20px" : "54px");
+    setTextSize(props.isMobile ? "12px" : "24px");
+  }, [props.isMobile]);
   return (
     <Paper
       className={classes.content1}
@@ -59,14 +60,22 @@ export default function Page1(props) {
     >
       {/* <div className={classes.half1}></div> */}
       <div className={classes.half1}>
-        <Typography className={classes.header1}>{t("O NAS")}</Typography>
-        <Typography className={classes.header2}>
+        <Typography
+          className={classes.header1}
+          style={{ fontSize: `${header1Size}` }}
+        >
+          {t("O NAS")}
+        </Typography>
+        <Typography
+          className={classes.header2}
+          style={{ fontSize: `${header2Size}` }}
+        >
           {t("Z prawdziwej pasji")}
         </Typography>
         <Typography
           style={{
             color: "#484848",
-            fontSize: "24px",
+            fontSize: `${textSize}`,
             letterSpacing: "0.05em",
             marginTop: "5%",
             marginBottom: "5%",

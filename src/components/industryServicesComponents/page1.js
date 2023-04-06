@@ -3,17 +3,8 @@ import { Paper, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import industry_background1 from "../img/industry_background1.png";
 import { useTranslation } from "react-i18next";
-import { isMobile } from "react-device-detect";
-const fonts = {
-  header1: "16px !important",
-  header2: "54px !important",
-  text1: "24px !important",
-};
-if (isMobile) {
-  fonts.header1 = "32px !important";
-  fonts.header2 = "80px !important";
-  fonts.text1 = "48px !important";
-}
+import { useState } from "react";
+import { useEffect } from "react";
 
 const useStyles = makeStyles({
   content1: {
@@ -38,19 +29,16 @@ const useStyles = makeStyles({
   },
   header1: {
     color: "#FFA033",
-    fontSize: fonts.header1,
     letterSpacing: "0.3em",
     marginLeft: "10% !important",
   },
   header2: {
     color: "#FFA033",
-    fontSize: fonts.header2,
     letterSpacing: "0.15em",
     marginLeft: "10% !important",
   },
   text1: {
     color: "#484848",
-    fontSize: fonts.text1,
     letterSpacing: "0.05em",
     marginTop: "5% !important",
     marginBottom: "5% !important",
@@ -63,6 +51,18 @@ const useStyles = makeStyles({
 export default function Page1(props) {
   const { t } = useTranslation();
   const classes = useStyles();
+  const [header1Size, setHeader1Size] = useState(
+    props.isMobile ? "8px" : "16px"
+  );
+  const [header2Size, setHeader2Size] = useState(
+    props.isMobile ? "20px" : "54px"
+  );
+  const [textSize, setTextSize] = useState(props.isMobile ? "12px" : "24px");
+  useEffect(() => {
+    setHeader1Size(props.isMobile ? "8px" : "16px");
+    setHeader2Size(props.isMobile ? "20px" : "54px");
+    setTextSize(props.isMobile ? "12px" : "24px");
+  }, [props.isMobile]);
   return (
     <Paper className={classes.content1}>
       <div
@@ -71,9 +71,22 @@ export default function Page1(props) {
           backgroundColor: "white",
         }}
       >
-        <Typography className={classes.header1}>{t("POZNAJ NAS")}</Typography>
-        <Typography className={classes.header2}>{t("Nasze usługi")}</Typography>
-        <Typography className={classes.text1}>
+        <Typography
+          className={classes.header1}
+          style={{ fontSize: `${header1Size}` }}
+        >
+          {t("POZNAJ NAS")}
+        </Typography>
+        <Typography
+          className={classes.header2}
+          style={{ fontSize: `${header2Size}` }}
+        >
+          {t("Nasze usługi")}
+        </Typography>
+        <Typography
+          className={classes.text1}
+          style={{ fontSize: `${textSize}` }}
+        >
           {t(
             "Kompleksowa realizacja systemów automatyki przemysłowej. Projektowanie, prefabrykacja szaf sterowniczych, montaż oraz uruchomienie.Naszą specjalizacją są systemy transportu zarówno ciężkiego jak i lekkiego."
           )}{" "}

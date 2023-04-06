@@ -3,15 +3,8 @@ import { Paper, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import industry_background3 from "../img/industry_background3.png";
 import { useTranslation } from "react-i18next";
-import { isMobile } from "react-device-detect";
-const fonts = {
-  header1: "40px !important",
-  text1: "21px !important",
-};
-if (isMobile) {
-  fonts.header1 = "42px !important";
-  fonts.text1 = "42px !important";
-}
+import { useState } from "react";
+import { useEffect } from "react";
 
 const useStyles = makeStyles({
   content4: {
@@ -39,7 +32,6 @@ const useStyles = makeStyles({
   },
   header1: {
     color: "#FFCF40",
-    fontSize: fonts.header1,
     letterSpacing: "0.15em",
     marginLeft: "10% !important",
     marginRight: "10% !important",
@@ -49,7 +41,6 @@ const useStyles = makeStyles({
 
   text1: {
     color: "#FFFFFF",
-    fontSize: fonts.text1,
     letterSpacing: "0.1em",
     marginRight: "5% !important",
     textAlign: "left",
@@ -60,6 +51,14 @@ const useStyles = makeStyles({
 export default function Page4(props) {
   const { t } = useTranslation();
   const classes = useStyles();
+  const [header1Size, setHeader1Size] = useState(
+    props.isMobile ? "10px" : "40px"
+  );
+  const [textSize, setTextSize] = useState(props.isMobile ? "10px" : "21px");
+  useEffect(() => {
+    setHeader1Size(props.isMobile ? "10px" : "40px");
+    setTextSize(props.isMobile ? "10px" : "21px");
+  }, [props.isMobile]);
   return (
     <Paper
       className={classes.content4}
@@ -75,34 +74,64 @@ export default function Page4(props) {
         }}
       >
         <div className={classes.line1}>
-          <Typography className={classes.header1}>
+          <Typography
+            className={classes.header1}
+            style={{ fontSize: `${header1Size}` }}
+          >
             {t("PRZYGOTOWANIE PLC/HMI")}
           </Typography>
-          <Typography className={classes.text1}>
+          <Typography
+            className={classes.text1}
+            style={{ fontSize: `${textSize}` }}
+          >
             {t(
               "Bazując na założeniach projektowych oraz opisie funkcjonalnym przygotujemy kompleksowo program PLC sterujący procesem oraz przygotujemy intuicyjną aplikację panelu HMI."
             )}
           </Typography>
         </div>
         <div className={classes.line1} style={{ alignItems: "space-between" }}>
-          <Typography className={classes.header1}>{t("INTEGRACJA")}</Typography>
-          <Typography className={classes.text1}>
+          <Typography
+            className={classes.header1}
+            style={{ fontSize: `${header1Size}` }}
+          >
+            {t("INTEGRACJA")}
+          </Typography>
+          <Typography
+            className={classes.text1}
+            style={{ fontSize: `${textSize}` }}
+          >
             {t(
               "Nasi doświadczeni programiści zajmą się kompleksowo integracją oraz uruchomieniem dostarczonego systemu."
             )}
           </Typography>
         </div>
         <div className={classes.line1}>
-          <Typography className={classes.header1}>{t("SZKOLENIE")}</Typography>
-          <Typography className={classes.text1}>
+          <Typography
+            className={classes.header1}
+            style={{ fontSize: `${header1Size}` }}
+          >
+            {t("SZKOLENIE")}
+          </Typography>
+          <Typography
+            className={classes.text1}
+            style={{ fontSize: `${textSize}` }}
+          >
             {t(
               "Po uruchomieniu systemu zadbamy o to, aby obsługa była przygotowana na pracę z nim oraz wiedziała jakie czynności należy przeprowadzać okresowo, aby zapewnić jego bezawaryjną pracę."
             )}
           </Typography>
         </div>
         <div className={classes.line1}>
-          <Typography className={classes.header1}>{t("SERWIS")}</Typography>
-          <Typography className={classes.text1}>
+          <Typography
+            className={classes.header1}
+            style={{ fontSize: `${header1Size}` }}
+          >
+            {t("SERWIS")}
+          </Typography>
+          <Typography
+            className={classes.text1}
+            style={{ fontSize: `${textSize}` }}
+          >
             {t(
               "Nasz dział serwisowy zadba o wsparcie obsługi w przypadku wystąpienia takiej konieczności. Oferujemy obsługę w języku polskim, angielskim, niemieckim oraz francuskim."
             )}

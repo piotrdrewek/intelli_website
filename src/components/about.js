@@ -18,11 +18,13 @@ const useStyles = makeStyles({
   footer: {
     display: "flex",
     backgroundColor: "#white !important",
-    alignItems: "center",
-    justifyContent: "space-between",
+    alignItems: "flex-start",
+    justifyContent: "flex-end",
     fontWeight: "bold",
     gridArea: "r-line6 / c-line1 / r-line7 / c-line3",
-    height: " 15vh",
+    minHeight: " 15vh",
+    width: "100%",
+    flexDirection: "column",
   },
 });
 
@@ -30,11 +32,11 @@ export default function About(props) {
   const classes = useStyles();
   return (
     <div className={classes.app}>
-      <Page1></Page1>
-      <Page2></Page2>
-      <Page3></Page3>
-      <Navbar />
-      <Footer className={classes.footer} />
+      <Page1 isMobile={props.isMobile} />
+      <Page2 isMobile={props.isMobile} />
+      <Page3 isMobile={props.isMobile} />
+      <Navbar isMobile={props.isMobile} />
+      <Footer isMobile={props.isMobile} className={classes.footer} />
     </div>
   );
 }
