@@ -1,9 +1,8 @@
 {
   "files": {
-    "main.css": "/intelli_website/static/css/main.ca23e64d.css",
-    "main.js": "/intelli_website/static/js/main.20e98523.js",
+    "main.css": "/intelli_website/static/css/main.1d5c802c.css",
+    "main.js": "/intelli_website/static/js/main.89a44b1d.js",
     "static/js/787.95f025ab.chunk.js": "/intelli_website/static/js/787.95f025ab.chunk.js",
-    "static/media/back1.jpg": "/intelli_website/static/media/back1.cce3010e7acfafa49fc9.jpg",
     "static/media/industry_background3.png": "/intelli_website/static/media/industry_background3.98a7cb5c942eed4dd98a.png",
     "static/media/industry_background2.png": "/intelli_website/static/media/industry_background2.0c1d6b07e62c3cd5c95b.png",
     "static/media/about_background1.png": "/intelli_website/static/media/about_background1.7585755f4f023c35bfd3.png",
@@ -27,12 +26,12 @@
     "static/media/logo.svg": "/intelli_website/static/media/logo.be952103a61bb6f464caae8c002ff642.svg",
     "index.html": "/intelli_website/index.html",
     "static/media/getFetch.cjs": "/intelli_website/static/media/getFetch.40f37ddea2378391108f.cjs",
-    "main.ca23e64d.css.map": "/intelli_website/static/css/main.ca23e64d.css.map",
-    "main.20e98523.js.map": "/intelli_website/static/js/main.20e98523.js.map",
+    "main.1d5c802c.css.map": "/intelli_website/static/css/main.1d5c802c.css.map",
+    "main.89a44b1d.js.map": "/intelli_website/static/js/main.89a44b1d.js.map",
     "787.95f025ab.chunk.js.map": "/intelli_website/static/js/787.95f025ab.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ca23e64d.css",
-    "static/js/main.20e98523.js"
+    "static/css/main.1d5c802c.css",
+    "static/js/main.89a44b1d.js"
   ]
 }
