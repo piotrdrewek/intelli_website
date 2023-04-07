@@ -3,44 +3,11 @@ import { makeStyles } from "@mui/styles";
 import { Paper, Typography } from "@mui/material";
 import about_background1 from "../img/about_background1.png";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
-import { useEffect } from "react";
-
-const useStyles = makeStyles({
-  content1: {
-    display: "flex",
-    justifyContent: "flex-end",
-    flexWrap: "wrap",
-    gridArea: "r-line1 / c-line1 / r-line3 / c-line3",
-    height: "100vh",
-    backgroundColor: "#cccccc !important",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "top center",
-  },
-  half1: {
-    height: "100vh",
-    width: "50%",
-    display: "flex",
-    alignItems: "flex-start",
-    justifyContent: "center",
-    flexDirection: "column",
-  },
-  header1: {
-    color: "#FFA033",
-    letterSpacing: "0.3em",
-    marginLeft: "10% !important",
-  },
-  header2: {
-    color: "#FFA033",
-    letterSpacing: "0.15em",
-    marginLeft: "10% !important",
-  },
-});
+import { useState, useEffect } from "react";
+import styles from "../../css/about/page1.module.css";
 
 export default function Page1(props) {
   const { t } = useTranslation();
-  const classes = useStyles();
   const [header1Size, setHeader1Size] = useState(
     props.isMobile ? "8px" : "16px"
   );
@@ -55,19 +22,19 @@ export default function Page1(props) {
   }, [props.isMobile]);
   return (
     <Paper
-      className={classes.content1}
+      className={styles.page1Content}
       style={{ backgroundImage: `url(${about_background1})` }}
     >
-      {/* <div className={classes.half1}></div> */}
-      <div className={classes.half1}>
+      {/* <div className={styles.half1}></div> */}
+      <div className={styles.page1Half}>
         <Typography
-          className={classes.header1}
+          className={styles.page1Header1}
           style={{ fontSize: `${header1Size}` }}
         >
           {t("O NAS")}
         </Typography>
         <Typography
-          className={classes.header2}
+          className={styles.page1Header2}
           style={{ fontSize: `${header2Size}` }}
         >
           {t("Z prawdziwej pasji")}

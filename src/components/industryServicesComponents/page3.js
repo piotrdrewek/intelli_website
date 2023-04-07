@@ -1,57 +1,11 @@
 import React from "react";
 import { Paper, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
-import { useEffect } from "react";
-
-const useStyles = makeStyles({
-  app: {
-    display: "grid",
-    gridTemplateColumns: "[c-line1] 50% [c-line2] 50% [c-line3]",
-    gridTemplateRows:
-      "[r-line1] 25vh [r-line2] 75vh [r-line3] 100vh [r-line4] 100vh [r-line5] 100vh [r-line6] 85vh [r-line7] 15vh [r-line8]",
-    background: "rgba(128, 128, 128, 0) !important",
-    textAlign: "center",
-  },
-  content3: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    flexWrap: "wrap",
-    gridArea: "r-line4 / c-line1 / r-line5 / c-line3",
-    background: "rgba(128, 128, 128, 0) !important",
-    height: "100vh",
-  },
-  half3: {
-    backgroundColor: "#cccccc",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "top center",
-    height: "100vh",
-    width: "50%",
-    display: "flex",
-    alignItems: "flex-end",
-    justifyContent: "center",
-  },
-  header1: {
-    color: "#FFA033",
-    letterSpacing: "0.15em",
-    marginLeft: "10% !important",
-    marginRight: "10% !important",
-  },
-
-  text1: {
-    color: "#000000",
-    letterSpacing: "0.1em",
-    marginLeft: "10% !important",
-    marginRight: "10% !important",
-  },
-});
+import { useState, useEffect } from "react";
+import styles from "../../css/industryServices/page3.module.css";
 
 export default function Page3(props) {
   const { t } = useTranslation();
-  const classes = useStyles();
   const [header1Size, setHeader1Size] = useState(
     props.isMobile ? "18px" : "36px"
   );
@@ -62,10 +16,10 @@ export default function Page3(props) {
   }, [props.isMobile]);
 
   return (
-    <Paper className={classes.content3} style={{ backgroundColor: "white" }}>
+    <Paper className={styles.page3Content} style={{ backgroundColor: "white" }}>
       <div>
         <Typography
-          className={classes.header1}
+          className={styles.page3Header1}
           style={{
             marginTop: "5%",
             textAlign: "left",
@@ -75,7 +29,7 @@ export default function Page3(props) {
           {t("KONCEPCJA")}
         </Typography>
         <Typography
-          className={classes.text1}
+          className={styles.page3Text1}
           style={{ fontSize: `${textSize}` }}
         >
           {t(
@@ -85,7 +39,7 @@ export default function Page3(props) {
       </div>
       <div>
         <Typography
-          className={classes.header1}
+          className={styles.page3Header1}
           style={{
             textAlign: "right",
             fontSize: `${header1Size}`,
@@ -94,7 +48,7 @@ export default function Page3(props) {
           {t("PROJEKT")}
         </Typography>
         <Typography
-          className={classes.text1}
+          className={styles.page3Text1}
           style={{ fontSize: `${textSize}` }}
         >
           {t(
@@ -104,7 +58,7 @@ export default function Page3(props) {
       </div>
       <div>
         <Typography
-          className={classes.header1}
+          className={styles.page3Header1}
           style={{
             textAlign: "left",
             fontSize: `${header1Size}`,
@@ -113,7 +67,7 @@ export default function Page3(props) {
           {t("SZAFY STEROWNICZE")}
         </Typography>
         <Typography
-          className={classes.text1}
+          className={styles.page3Text1}
           style={{ fontSize: `${textSize}` }}
         >
           {t(
@@ -123,7 +77,7 @@ export default function Page3(props) {
       </div>
       <div>
         <Typography
-          className={classes.header1}
+          className={styles.page3Header1}
           style={{
             textAlign: "right",
             fontSize: `${header1Size}`,
@@ -132,7 +86,7 @@ export default function Page3(props) {
           {t("MONTAŻ")}
         </Typography>
         <Typography
-          className={classes.text1}
+          className={styles.page3Text1}
           style={{
             marginBottom: "5%",
             fontSize: `${textSize}`,

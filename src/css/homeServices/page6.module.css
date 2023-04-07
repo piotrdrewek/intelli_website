@@ -1,0 +1,32 @@
+.page6Content {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  grid-area: r-line7 / c-line1 / r-line8 / c-line3;
+  background-color: #cccccc !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  height: 85vh;
+}
+.page6Half {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.page6Text1 {
+  color: #ffcf40;
+  letter-spacing: 0.15em;
+}
+.page6Text2 {
+  color: #000000;
+  letter-spacing: 0.25em;
+  margin-top: 10% !important;
+  margin-bottom: 5% !important;
+}
+.page6Text3 {
+  color: #000000;
+  letter-spacing: 0.15em;
+}

@@ -1,0 +1,42 @@
+.page4Content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  grid-area: r-line5 / c-line1 / r-line6 / c-line3;
+  background: rgba(128, 128, 128, 0) !important;
+  height: 100vh;
+}
+.page4Half {
+  height: 75%;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 5%;
+}
+.page4Div {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  justify-content: flex-start;
+  margin-right: 1%;
+}
+.page4Header1 {
+  color: #ffa033;
+  letter-spacing: 0.1em;
+  margin-right: 75px !important;
+  width: 100%;
+  text-align: right;
+}
+.page4Header2 {
+  color: #ffa033;
+  letter-spacing: 0.15em;
+  margin-left: 1% !important;
+  text-align: left;
+}
+.page4Text1 {
+  color: #000000;
+  letter-spacing: 0.05em;
+  text-align: left;
+  margin-left: 5% !important;
+}

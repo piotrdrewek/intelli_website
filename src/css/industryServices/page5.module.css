@@ -1,0 +1,37 @@
+.page5Content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  grid-area: r-line6 / c-line1 / r-line7 / c-line3;
+  background: rgba(128, 128, 128, 0) !important;
+  height: 85vh;
+  background-color: #cccccc !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+.page5Half {
+  background-color: #cccccc;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.page5Header1 {
+  color: #ffcf40;
+  letter-spacing: 0.15em;
+}
+.page5Text1 {
+  color: #ffffff;
+  letter-spacing: 0.25em;
+  margin-top: 10% !important;
+  margin-bottom: 5% !important;
+}
+.page5Text2 {
+  color: #ffffff;
+  letter-spacing: 0.15em;
+}

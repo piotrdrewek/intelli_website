@@ -1,0 +1,27 @@
+.homeContent {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  grid-area: r-line1 / c-line1 / r-line3 / c-line3;
+  background: rgba(128, 128, 128, 0);
+  height: 85vh;
+}
+.homeHalf {
+  background-color: #cccccc;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.homeButton {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  border-radius: 30px !important;
+  margin-bottom: 25% !important;
+  font-weight: bold;
+  size: large;
+}

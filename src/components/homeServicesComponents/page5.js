@@ -1,52 +1,12 @@
 import React from "react";
 import { Paper, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import home_background3 from "../img/home_background3.png";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
-import { useEffect } from "react";
-
-const useStyles = makeStyles({
-  content5: {
-    display: "flex",
-    justifyContent: "space-between",
-    flexWrap: "wrap",
-    gridArea: "r-line6 / c-line1 / r-line7 / c-line3",
-    background: "rgba(128, 128, 128, 0) !important",
-    height: "100vh",
-  },
-  half5: {
-    backgroundColor: "#cccccc",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "top center",
-    height: "100%",
-    width: "50%",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    justifyContent: "center",
-  },
-  header1: {
-    color: "#FFA033",
-    letterSpacing: "0.15em",
-    marginLeft: "10% !important",
-    textAlign: "left",
-  },
-  text1: {
-    color: "#484848",
-    letterSpacing: "0.05em",
-    marginTop: "5% !important",
-    marginBottom: "5% !important",
-    marginLeft: "10% !important",
-    marginRight: "10% !important",
-    textAlign: "left",
-  },
-});
+import { useState, useEffect } from "react";
+import styles from "../../css/homeServices/page5.module.css";
 
 export default function Page5(props) {
   const { t } = useTranslation();
-  const classes = useStyles();
   const [header1Size, setHeader1Size] = useState(
     props.isMobile ? "22px" : "54px"
   );
@@ -56,25 +16,25 @@ export default function Page5(props) {
     setTextSize(props.isMobile ? "12px" : "24px");
   }, [props.isMobile]);
   return (
-    <Paper className={classes.content5}>
+    <Paper className={styles.page5Content}>
       <div
-        className={classes.half5}
+        className={styles.page5Half}
         style={{ backgroundImage: `url(${home_background3})` }}
       ></div>
       <div
-        className={classes.half5}
+        className={styles.page5Half}
         style={{
           backgroundColor: "white",
         }}
       >
         <Typography
-          className={classes.header1}
+          className={styles.page5Header1}
           style={{ fontSize: `${header1Size}` }}
         >
           {t("Aplikacja użykownika")}
         </Typography>
         <Typography
-          className={classes.text1}
+          className={styles.page5Text1}
           style={{ fontSize: `${textSize}` }}
         >
           {t(

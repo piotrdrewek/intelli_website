@@ -1,53 +1,12 @@
 import React from "react";
 import { Paper, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import industry_background4 from "../img/industry_background4.png";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
-import { useEffect } from "react";
-
-const useStyles = makeStyles({
-  content5: {
-    display: "flex",
-    justifyContent: "space-between",
-    flexWrap: "wrap",
-    gridArea: "r-line6 / c-line1 / r-line7 / c-line3",
-    height: "85vh",
-    backgroundColor: "#cccccc!important",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "top center",
-  },
-  half5: {
-    backgroundColor: "#cccccc",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "top center",
-    height: "85vh",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  header1: {
-    color: "#FFCF40",
-    letterSpacing: "0.15em",
-  },
-  text1: {
-    color: "#FFFFFF",
-    letterSpacing: "0.25em",
-    marginTop: "10% !important",
-    marginBottom: "5% !important",
-  },
-  text2: {
-    color: "#FFFFFF",
-    letterSpacing: "0.15em",
-  },
-});
+import { useState, useEffect } from "react";
+import styles from "../../css/industryServices/page5.module.css";
 
 export default function IndustryServices(props) {
   const { t } = useTranslation();
-  const classes = useStyles();
   const [header1Size, setHeader1Size] = useState(
     props.isMobile ? "12px" : "25px"
   );
@@ -64,35 +23,35 @@ export default function IndustryServices(props) {
     setHalf2Width(props.isMobile ? "60%" : "40%");
   }, [props.isMobile]);
   return (
-    <Paper className={classes.content5}>
+    <Paper className={styles.page5Content}>
       <div
-        className={classes.half5}
+        className={styles.page5Half}
         style={{
           backgroundImage: `url(${industry_background4})`,
           width: `${half1Width}`,
         }}
       ></div>
       <div
-        className={classes.half5}
+        className={styles.page5Half}
         style={{
           backgroundColor: "#23221E",
           width: `${half2Width}`,
         }}
       >
         <Typography
-          className={classes.header1}
+          className={styles.page5Header1}
           style={{ fontSize: `${header1Size}` }}
         >
           {t("SKONTAKTUJ SIĘ Z NAMI")}
         </Typography>
         <Typography
-          className={classes.text1}
+          className={styles.page5Text1}
           style={{ fontSize: `${text1Size}` }}
         >
           BIURO@INTELLI.COM.PL
         </Typography>
         <Typography
-          className={classes.text2}
+          className={styles.page5Text2}
           style={{ fontSize: `${text2Size}` }}
         >
           (+48) 607 683 704

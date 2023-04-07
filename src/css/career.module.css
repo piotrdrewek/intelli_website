@@ -1,0 +1,52 @@
+.careerContent {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  grid-area: r-line1 / c-line1 / r-line3 / c-line3;
+  height: 85vh;
+  background-color: #cccccc !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+.careerhalf {
+  background-color: #cccccc;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.careerButton {
+  border-radius: 30px !important;
+  border-color: #ffa033 !important;
+  background: #ffa033 !important;
+  margin-bottom: 20% !important;
+}
+.careerHeader {
+  color: #ffa033;
+  letter-spacing: 0.15em;
+  text-align: left;
+}
+.careerText1 {
+  color: #4e4e4e;
+  letter-spacing: 0.15em;
+  text-align: left;
+  margin-left: 10% !important;
+  margin-right: 5% !important;
+}
+.careerText2 {
+  color: #ffcf40;
+  letter-spacing: 0.15em;
+  text-align: left;
+  margin-left: 10% !important;
+  margin-right: 5% !important;
+}
+.careerButtonText {
+  color: #ffffff;
+  letter-spacing: 0.2em;
+}
