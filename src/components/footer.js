@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from "@mui/styles";
 import { Typography, Button, IconButton } from "@mui/material";
 import { Link } from "react-router-dom";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -7,87 +6,10 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-
-const useStyles = makeStyles({
-  footer: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: "1%",
-  },
-  menu: {
-    display: "flex",
-    flexDirection: "column",
-    color: "black",
-    justifyContent: "center",
-    alignContent: "flex-start",
-  },
-  menuButtons: {
-    textTransform: "none !important",
-    justifyContent: "flex-start !important",
-    fontSize: "0.8rem !important",
-    color: "#4E4E4E !important",
-    letterSpacing: "0.3rem !important",
-  },
-  menuText: {},
-  icons: {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap",
-    height: "10vh !important",
-    justifyContent: "center",
-    alignContent: "center",
-  },
-  svgIcon: {
-    fill: "black !important",
-  },
-  left: {
-    marginLeft: "5% !important",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignContent: "flex-start",
-    width: "40vh",
-  },
-  iconButton: {
-    borderRadius: 0,
-    disableFocusRipple: "false",
-    disableRipple: "false",
-    fill: "black !important",
-  },
-  madeBy: {
-    display: "flex",
-    flexDirection: "row",
-    color: "black",
-    justifyContent: "flex-end",
-    alignItems: "flex-end",
-    fontSize: "0.5rem !important",
-    textAlign: "right",
-    width: "100%",
-  },
-  info: {
-    marginRight: "5% !important",
-    display: "flex",
-    flexDirection: "column",
-  },
-
-  contactInfo: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  intelliText: {
-    marginBottom: "0.5rem",
-    color: "#2F2F2F",
-    letterSpacing: "0.25em",
-  },
-  adressText: {},
-});
+import styles from "../css/footer.module.css";
 
 function Footer(props) {
   const { t } = useTranslation();
-  const classes = useStyles();
   const [menuTextFont, setMenuTextFont] = useState(
     props.isMobile ? "7px" : "14px"
   );
@@ -101,9 +23,12 @@ function Footer(props) {
     props.isMobile ? "5px" : "10px"
   );
   const [madeBySize, setMadeBySize] = useState(
-    props.isMobile ? "0.3rem" : "0.7rem"
+    props.isMobile ? "0.3rem" : "5px"
   );
   const [menuMargin, setMenuMargin] = useState(props.isMobile ? "5%" : "10%");
+  const [footerMarginTop, setFooterMarginTop] = useState(
+    props.isMobile ? "5%" : "0%"
+  );
 
   useEffect(() => {
     setMenuTextFont(props.isMobile ? "7px" : "14px");
@@ -112,14 +37,18 @@ function Footer(props) {
     setAdressTextSize(props.isMobile ? "5px" : "10px");
     setMadeBySize(props.isMobile ? "0.3rem" : "0.7rem");
     setMenuMargin(props.isMobile ? "5%" : "10%");
+    setFooterMarginTop(props.isMobile ? "5%" : "0%");
   }, [props.isMobile]);
 
   return (
     <div className={props.className}>
-      <div className={classes.footer}>
-        <div className={classes.left}>
+      <div
+        className={styles.footer}
+        style={{ marginTop: `${footerMarginTop}` }}
+      >
+        <div className={styles.footerLeft}>
           <div
-            className={classes.menu}
+            className={styles.footerMenu}
             style={{
               marginLeft: `${menuMargin}`,
               marginRight: `${menuMargin}`,
@@ -130,13 +59,10 @@ function Footer(props) {
               to={"/about"}
               color="inherit"
               size="small"
-              className={classes.menuButtons}
+              className={styles.footerMenuButtons}
               onClick={() => window.scrollTo(0, 0)}
             >
-              <Typography
-                className={classes.menuText}
-                style={{ fontSize: `${menuTextFont}` }}
-              >
+              <Typography style={{ fontSize: `${menuTextFont}` }}>
                 {t("o nas")}
               </Typography>
             </Button>
@@ -145,13 +71,10 @@ function Footer(props) {
               to={"/career"}
               color="inherit"
               size="small"
-              className={classes.menuButtons}
+              className={styles.footerMenuButtons}
               onClick={() => window.scrollTo(0, 0)}
             >
-              <Typography
-                className={classes.menuText}
-                style={{ fontSize: `${menuTextFont}` }}
-              >
+              <Typography style={{ fontSize: `${menuTextFont}` }}>
                 {t("kariera")}
               </Typography>
             </Button>
@@ -160,18 +83,15 @@ function Footer(props) {
               to={"/contact"}
               color="inherit"
               size="small"
-              className={classes.menuButtons}
+              className={styles.footerMenuButtons}
               onClick={() => window.scrollTo(0, 0)}
             >
-              <Typography
-                className={classes.menuText}
-                style={{ fontSize: `${menuTextFont}` }}
-              >
+              <Typography style={{ fontSize: `${menuTextFont}` }}>
                 {t("kontakt")}
               </Typography>
             </Button>
           </div>
-          <div className={classes.icons}>
+          <div className={styles.footerIcons}>
             <IconButton
               aria-label="insta"
               href={
@@ -181,7 +101,7 @@ function Footer(props) {
               style={{ borderRadius: 0 }}
             >
               <InstagramIcon
-                className={classes.svgIcon}
+                className={styles.footerSvgIcon}
                 style={{ fontSize: `${svgIconSize}` }}
               />
             </IconButton>
@@ -192,7 +112,7 @@ function Footer(props) {
               style={{ borderRadius: 0 }}
             >
               <FacebookIcon
-                className={classes.svgIcon}
+                className={styles.footerSvgIcon}
                 style={{ fontSize: `${svgIconSize}` }}
               />
             </IconButton>
@@ -203,20 +123,20 @@ function Footer(props) {
               style={{ borderRadius: 0 }}
             >
               <LinkedInIcon
-                className={classes.svgIcon}
+                className={styles.footerSvgIcon}
                 style={{ fontSize: `${svgIconSize}` }}
               />
             </IconButton>
           </div>
         </div>
-        <div className={classes.info}>
+        <div className={styles.footerInfo}>
           <Typography
-            className={classes.intelliText}
+            className={styles.footerIntelliText}
             style={{ fontSize: `${intelliTextSize}` }}
           >
             INTELLI AUTOMATION SP. Z O.O.
           </Typography>
-          <div className={classes.contactInfo}>
+          <div className={styles.footerContactInfo}>
             <div
               style={{
                 textAlign: "left",
@@ -225,22 +145,13 @@ function Footer(props) {
                 letterSpacing: "0.15em",
               }}
             >
-              <Typography
-                className={classes.adressText}
-                style={{ fontSize: `${adressTextSize}` }}
-              >
+              <Typography style={{ fontSize: `${adressTextSize}` }}>
                 UL. PODJAZD 1/2,
               </Typography>
-              <Typography
-                className={classes.adressText}
-                style={{ fontSize: `${adressTextSize}` }}
-              >
+              <Typography style={{ fontSize: `${adressTextSize}` }}>
                 81-805 SOPOT
               </Typography>
-              <Typography
-                className={classes.adressText}
-                style={{ fontSize: `${adressTextSize}` }}
-              >
+              <Typography style={{ fontSize: `${adressTextSize}` }}>
                 {t("POLSKA")}
               </Typography>
             </div>
@@ -252,24 +163,18 @@ function Footer(props) {
                 letterSpacing: "0.15em",
               }}
             >
-              <Typography
-                className={classes.adressText}
-                style={{ fontSize: `${adressTextSize}` }}
-              >
+              <Typography style={{ fontSize: `${adressTextSize}` }}>
                 NIP : 5851499315
               </Typography>
-              <Typography
-                className={classes.adressText}
-                style={{ fontSize: `${adressTextSize}` }}
-              >
+              <Typography style={{ fontSize: `${adressTextSize}` }}>
                 KRS : 0001004360
               </Typography>
             </div>
           </div>
         </div>
       </div>
-      <div className={classes.madeBy} style={{ marginRight: "1%" }}>
-        <div className={classes.madeBy}>
+      <div className={styles.footerMadeBy} style={{ marginRight: "1%" }}>
+        <div className={styles.footerMadeBy}>
           <Typography style={{ fontSize: `${madeBySize}` }}>
             {/* {" "} */}
             Created by: &nbsp;

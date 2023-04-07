@@ -1,0 +1,18 @@
+.onePageApp {
+  display: grid;
+  grid-template-columns: [c-line1] 50% [c-line2] 50% [c-line3];
+  grid-template-rows: [r-line1] 25% [r-line2] 60% [r-line3] 15% [r-line4];
+  background: rgba(128, 128, 128, 0);
+  text-align: center;
+}
+.onePageFooter {
+  display: flex;
+  background-color: white !important;
+  align-items: flex-start;
+  justify-content: flex-end;
+  font-weight: bold;
+  grid-area: r-line3 / c-line1 / r-line4 / c-line3;
+  min-height: 15vh;
+  width: 100%;
+  flex-direction: column;
+}

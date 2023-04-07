@@ -1,0 +1,29 @@
+.navbarAppbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  background: rgba(128, 128, 128, 0) !important;
+  grid-area: r-line1 / c-line1 / r-line2 / c-line3;
+  height: 25vh;
+  flex-flow: row wrap;
+}
+.navbarLogo {
+  margin-left: 10% !important;
+  margin-right: auto !important;
+}
+.navbarMenu {
+  color: white !important;
+  border-top-left-radius: 25px !important;
+  border-bottom-left-radius: 25px !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  background: #bcb9ad !important;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-around;
+}
+.navbarFlags {
+  color: white !important;
+  min-width: 0px !important;
+}

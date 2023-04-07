@@ -1,56 +1,12 @@
 import React from "react";
 import { Paper, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import industry_background3 from "../img/industry_background3.png";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
-import { useEffect } from "react";
-
-const useStyles = makeStyles({
-  content4: {
-    display: "flex",
-    justifyContent: "space-between",
-    flexWrap: "wrap",
-    gridArea: "r-line5 / c-line1 / r-line6 / c-line3",
-    height: "100vh",
-    backgroundColor: "#212121!important",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "top center",
-  },
-  half4: {
-    height: "100vh",
-    width: "50%",
-    display: "flex",
-    alignItems: "flex-end",
-    justifyContent: "center",
-  },
-  line1: {
-    display: "flex",
-    flexDirection: "row",
-    width: "100%",
-  },
-  header1: {
-    color: "#FFCF40",
-    letterSpacing: "0.15em",
-    marginLeft: "10% !important",
-    marginRight: "10% !important",
-    textAlign: "left",
-    width: "40%",
-  },
-
-  text1: {
-    color: "#FFFFFF",
-    letterSpacing: "0.1em",
-    marginRight: "5% !important",
-    textAlign: "left",
-    width: "60%",
-  },
-});
+import { useState, useEffect } from "react";
+import styles from "../../css/industryServices/page4.module.css";
 
 export default function Page4(props) {
   const { t } = useTranslation();
-  const classes = useStyles();
   const [header1Size, setHeader1Size] = useState(
     props.isMobile ? "10px" : "40px"
   );
@@ -61,11 +17,11 @@ export default function Page4(props) {
   }, [props.isMobile]);
   return (
     <Paper
-      className={classes.content4}
+      className={styles.page4Content}
       style={{ backgroundImage: `url(${industry_background3})` }}
     >
       <div
-        className={classes.half4}
+        className={styles.page4Half}
         style={{
           width: "100%",
           flexDirection: "column",
@@ -73,15 +29,15 @@ export default function Page4(props) {
           justifyContent: "space-around",
         }}
       >
-        <div className={classes.line1}>
+        <div className={styles.page4Line}>
           <Typography
-            className={classes.header1}
+            className={styles.page4Header1}
             style={{ fontSize: `${header1Size}` }}
           >
             {t("PRZYGOTOWANIE PLC/HMI")}
           </Typography>
           <Typography
-            className={classes.text1}
+            className={styles.page4Text1}
             style={{ fontSize: `${textSize}` }}
           >
             {t(
@@ -89,15 +45,18 @@ export default function Page4(props) {
             )}
           </Typography>
         </div>
-        <div className={classes.line1} style={{ alignItems: "space-between" }}>
+        <div
+          className={styles.page4Line}
+          style={{ alignItems: "space-between" }}
+        >
           <Typography
-            className={classes.header1}
+            className={styles.page4Header1}
             style={{ fontSize: `${header1Size}` }}
           >
             {t("INTEGRACJA")}
           </Typography>
           <Typography
-            className={classes.text1}
+            className={styles.page4Text1}
             style={{ fontSize: `${textSize}` }}
           >
             {t(
@@ -105,15 +64,15 @@ export default function Page4(props) {
             )}
           </Typography>
         </div>
-        <div className={classes.line1}>
+        <div className={styles.page4Line}>
           <Typography
-            className={classes.header1}
+            className={styles.page4Header1}
             style={{ fontSize: `${header1Size}` }}
           >
             {t("SZKOLENIE")}
           </Typography>
           <Typography
-            className={classes.text1}
+            className={styles.page4Text1}
             style={{ fontSize: `${textSize}` }}
           >
             {t(
@@ -121,15 +80,15 @@ export default function Page4(props) {
             )}
           </Typography>
         </div>
-        <div className={classes.line1}>
+        <div className={styles.page4Line}>
           <Typography
-            className={classes.header1}
+            className={styles.page4Header1}
             style={{ fontSize: `${header1Size}` }}
           >
             {t("SERWIS")}
           </Typography>
           <Typography
-            className={classes.text1}
+            className={styles.page4Text1}
             style={{ fontSize: `${textSize}` }}
           >
             {t(

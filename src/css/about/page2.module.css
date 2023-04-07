@@ -1,0 +1,31 @@
+.page2Content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  grid-area: r-line3 / c-line1 / r-line4 / c-line3;
+  background: rgba(128, 128, 128, 0) !important;
+  height: 100vh;
+}
+.page2Half {
+  height: 100vh;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.page2Header1 {
+  width: 80%;
+  color: #ffcf40;
+  letter-spacing: 0.15em;
+  margin-left: 20% !important;
+  text-align: left;
+}
+
+.page2Text1 {
+  color: #000000;
+  letter-spacing: 0.05em;
+  margin-left: 20% !important;
+  margin-right: 20% !important;
+  text-align: left;
+}
