@@ -35,7 +35,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-content: flex-start;
-  width: 40vh;
+  width: 30vh;
 }
 .footerMadeBy {
   display: flex;
