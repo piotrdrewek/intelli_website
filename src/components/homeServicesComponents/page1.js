@@ -1,13 +1,56 @@
 import React from "react";
 import { Paper, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import home_background1 from "../img/home_background1.png";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { useEffect } from "react";
-import styles from "../../css/homeServices/page1.module.css";
+
+const useStyles = makeStyles({
+  content1: {
+    display: "flex",
+    justifyContent: "space-between",
+    flexWrap: "wrap",
+    gridArea: "r-line1 / c-line1 / r-line3 / c-line3",
+    background: "rgba(128, 128, 128, 0) !important",
+    height: "100vh",
+  },
+  half1: {
+    backgroundColor: "#cccccc",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "top center",
+    height: "100%",
+    width: "50%",
+    flexDirection: "column",
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "center",
+  },
+  header1: {
+    color: "#FFA033",
+    letterSpacing: "0.3em",
+    marginLeft: "10% !important",
+  },
+  header2: {
+    color: "#FFA033",
+    letterSpacing: "0.15em",
+    marginLeft: "10% !important",
+  },
+  text1: {
+    color: "#484848",
+    letterSpacing: "0.05em",
+    marginTop: "5% !important",
+    marginBottom: "5% !important",
+    marginLeft: "10% !important",
+    marginRight: "10% !important",
+    textAlign: "left",
+  },
+});
 
 export default function Page1(props) {
   const { t } = useTranslation();
+  const classes = useStyles();
   const [header1Size, setHeader1Size] = useState(
     props.isMobile ? "8px" : "16px"
   );
@@ -21,27 +64,27 @@ export default function Page1(props) {
     setTextSize(props.isMobile ? "12px" : "24px");
   }, [props.isMobile]);
   return (
-    <Paper className={styles.page1Content}>
+    <Paper className={classes.content1}>
       <div
-        className={styles.page1Half}
+        className={classes.half1}
         style={{
           backgroundColor: "white",
         }}
       >
         <Typography
-          className={styles.page1Header1}
+          className={classes.header1}
           style={{ fontSize: `${header1Size}` }}
         >
           {t("POZNAJ NAS")}
         </Typography>
         <Typography
-          className={styles.page1Header2}
+          className={classes.header2}
           style={{ fontSize: `${header2Size}` }}
         >
           {t("Nasze usługi")}
         </Typography>
         <Typography
-          className={styles.page1Text1}
+          className={classes.text1}
           style={{ fontSize: `${textSize}` }}
         >
           {t(
@@ -50,7 +93,7 @@ export default function Page1(props) {
         </Typography>
       </div>
       <div
-        className={styles.page1Half}
+        className={classes.half1}
         style={{ backgroundImage: `url(${home_background1})` }}
       ></div>
     </Paper>

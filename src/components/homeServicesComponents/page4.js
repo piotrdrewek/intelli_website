@@ -1,14 +1,62 @@
 import React from "react";
 import { Paper, Typography, Box } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import home_system4 from "../img/home_system4.png";
 import home_system5 from "../img/home_system5.png";
 import home_system6 from "../img/home_system6.png";
 import { Trans, useTranslation } from "react-i18next";
-import { useState, useEffect } from "react";
-import styles from "../../css/homeServices/page4.module.css";
+import { useState } from "react";
+import { useEffect } from "react";
+
+const useStyles = makeStyles({
+  content4: {
+    display: "flex",
+    justifyContent: "space-between",
+    flexWrap: "wrap",
+    gridArea: "r-line5 / c-line1 / r-line6 / c-line3",
+    background: "rgba(128, 128, 128, 0) !important",
+    height: "100vh",
+  },
+  half4: {
+    height: "75%",
+    width: "100%",
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
+    gap: "5%",
+  },
+  div: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "space-between",
+    justifyContent: "flex-start",
+    marginLeft: "1%",
+  },
+  header1: {
+    color: "#FFA033",
+    textAlign: "left",
+    letterSpacing: "0.1em",
+    width: "100%",
+    marginRight: "75px !important",
+    textAlign: "right",
+  },
+  header2: {
+    color: "#FFA033",
+    letterSpacing: "0.15em",
+    textAlign: "left",
+    marginLeft: "1% !important",
+  },
+  text1: {
+    color: "#000000",
+    letterSpacing: "0.05em",
+    textAlign: "left",
+    marginLeft: "5% !important",
+  },
+});
 
 export default function Page4(props) {
   const { t } = useTranslation();
+  const classes = useStyles();
   const [header1Size, setHeader1Size] = useState(
     props.isMobile ? "27px" : "54px"
   );
@@ -36,21 +84,21 @@ export default function Page4(props) {
     setHalfWrap(props.isMobile ? "wrap" : "nowrap");
   }, [props.isMobile]);
   return (
-    <Paper className={styles.page4Content}>
+    <Paper className={classes.content4}>
       <Typography
-        className={styles.page4Header1}
+        className={classes.header1}
         style={{ fontSize: `${header1Size}`, marginTop: `${header1MarginTop}` }}
       >
         {t("Systemy")}
       </Typography>
 
       <div
-        className={styles.page4Half}
+        className={classes.half4}
         style={{ backgroundColor: "white", flexWrap: `${halfWrap}` }}
       >
-        <div className={styles.page4Div} style={{ maxWidth: `${maxWidth}` }}>
+        <div className={classes.div} style={{ maxWidth: `${maxWidth}` }}>
           <Typography
-            className={styles.page4Header2}
+            className={classes.header2}
             style={{ fontSize: `${header2Size}` }}
           >
             {t("MONITORUJĄCE I OPTYMALIZUJĄCE")}
@@ -67,7 +115,7 @@ export default function Page4(props) {
             src={home_system4}
           />
           <Typography
-            className={styles.page4Text1}
+            className={classes.text1}
             style={{ fontSize: `${textSize}`, width: `${imgWidth}` }}
           >
             {t(
@@ -75,9 +123,9 @@ export default function Page4(props) {
             )}
           </Typography>
         </div>
-        <div className={styles.page4Div} style={{ maxWidth: `${maxWidth}` }}>
+        <div className={classes.div} style={{ maxWidth: `${maxWidth}` }}>
           <Typography
-            className={styles.page4Header2}
+            className={classes.header2}
             style={{ fontSize: `${header2Size}` }}
           >
             {/* {t("STEROWANIA ROLETAMI")} */}
@@ -95,7 +143,7 @@ export default function Page4(props) {
             src={home_system5}
           />
           <Typography
-            className={styles.page4Text1}
+            className={classes.text1}
             style={{ fontSize: `${textSize}` }}
           >
             {t(
@@ -103,9 +151,9 @@ export default function Page4(props) {
             )}
           </Typography>
         </div>
-        <div className={styles.page4Div} style={{ maxWidth: `${maxWidth}` }}>
+        <div className={classes.div} style={{ maxWidth: `${maxWidth}` }}>
           <Typography
-            className={styles.page4Header2}
+            className={classes.header2}
             style={{ fontSize: `${header2Size}` }}
           >
             {t("STEROWANIA OŚWIETLENIEM")}
@@ -122,7 +170,7 @@ export default function Page4(props) {
             src={home_system6}
           />
           <Typography
-            className={styles.page4Text1}
+            className={classes.text1}
             style={{ fontSize: `${textSize}` }}
           >
             {t(

@@ -1,12 +1,59 @@
 import React from "react";
 import { Paper, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import industry_background2 from "../img/industry_background2.png";
 import { useTranslation } from "react-i18next";
-import { useState, useEffect } from "react";
-import styles from "../../css/industryServices/page2.module.css";
+import { useState } from "react";
+import { useEffect } from "react";
+
+const useStyles = makeStyles({
+  content2: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    justifyContent: "flex-end",
+    flexWrap: "wrap",
+    gridArea: "r-line3 / c-line1 / r-line4 / c-line3",
+    height: "100vh",
+    backgroundColor: "#cccccc !important",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "top center",
+  },
+  half2: {
+    height: "100vh",
+    width: "50%",
+    display: "flex",
+    alignItems: "flex-end",
+    justifyContent: "center",
+  },
+  header1: {
+    color: "#FFA033",
+    letterSpacing: "0.3em",
+    marginLeft: "10% !important",
+    textAlign: "left",
+  },
+  header2: {
+    color: "#FFA033",
+    letterSpacing: "0.15em",
+    marginLeft: "10% !important",
+    textAlign: "left",
+  },
+  text1: {
+    color: "#FFFFFF",
+    letterSpacing: "0.1em",
+    width: "40%",
+    marginTop: "5% !important",
+
+    marginLeft: "10% !important",
+    marginRight: "10% !important",
+    textAlign: "left",
+  },
+});
 
 export default function Page2(props) {
   const { t } = useTranslation();
+  const classes = useStyles();
   const [header1Size, setHeader1Size] = useState(
     props.isMobile ? "8px" : "16px"
   );
@@ -25,23 +72,23 @@ export default function Page2(props) {
   }, [props.isMobile]);
   return (
     <Paper
-      className={styles.page2Content}
+      className={classes.content2}
       style={{ backgroundImage: `url(${industry_background2})` }}
     >
       <Typography
-        className={styles.page2Header1}
+        className={classes.header1}
         style={{ fontSize: `${header1Size}` }}
       >
         {t("NASZE USŁUGI")}
       </Typography>
       <Typography
-        className={styles.page2Header2}
+        className={classes.header2}
         style={{ fontSize: `${header2Size}` }}
       >
         {t("Nadzory inwestorskie")}
       </Typography>
       <Typography
-        className={styles.page2Text1}
+        className={classes.text1}
         style={{ fontSize: `${textSize}`, marginBottom: `${textMarginBottom}` }}
       >
         {t(

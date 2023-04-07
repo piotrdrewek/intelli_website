@@ -1,13 +1,63 @@
 import React from "react";
 import { Paper, Typography, Box } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import home_system1 from "../img/home_system1.png";
 import home_system2 from "../img/home_system2.png";
 import home_system3 from "../img/home_system3.png";
 import { useTranslation } from "react-i18next";
-import { useState, useEffect } from "react";
-import styles from "../../css/homeServices/page3.module.css";
+import { useState } from "react";
+import { useEffect } from "react";
+
+const useStyles = makeStyles({
+  content3: {
+    display: "flex",
+    justifyContent: "flex-end",
+    flexWrap: "wrap",
+    gridArea: "r-line4 / c-line1 / r-line5 / c-line3",
+    background: "rgba(128, 128, 128, 0) !important",
+    height: "100vh",
+    boxShadow:
+      "0px 3px 1px -2px rgba(0,0,0,0),0px 2px 2px 0px rgba(0,0,0,0),0px 1px 5px 0px rgba(0,0,0,0) !important",
+  },
+  half3: {
+    height: "75%",
+    width: "100%",
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "flex-end",
+    gap: "5%",
+    maxHeight: "100vh",
+  },
+  div: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "space-between",
+    justifyContent: "flex-start",
+    marginRight: "1%",
+  },
+  header1: {
+    color: "#FFA033",
+    textAlign: "left",
+    letterSpacing: "0.1em",
+    marginLeft: "75px !important",
+    width: "100%",
+  },
+  header2: {
+    color: "#FFA033",
+    letterSpacing: "0.15em",
+    marginLeft: "1% !important",
+    textAlign: "left",
+  },
+  text1: {
+    color: "#000000",
+    letterSpacing: "0.05em",
+    textAlign: "left",
+  },
+});
+
 export default function Page3(props) {
   const { t } = useTranslation();
+  const classes = useStyles();
   const [header1Size, setHeader1Size] = useState(
     props.isMobile ? "27px" : "54px"
   );
@@ -32,23 +82,23 @@ export default function Page3(props) {
     setHalfWrap(props.isMobile ? "wrap" : "nowrap");
   }, [props.isMobile]);
   return (
-    <Paper className={styles.page3Content}>
+    <Paper className={classes.content3}>
       <Typography
-        className={styles.page3Header1}
+        className={classes.header1}
         style={{ fontSize: `${header1Size}`, marginTop: `${header1MarginTop}` }}
       >
         {t("Systemy")}
       </Typography>
       <div
-        className={styles.page3Half}
+        className={classes.half3}
         style={{
           backgroundColor: "white",
           flexWrap: `${halfWrap}`,
         }}
       >
-        <div className={styles.page3Div} style={{ width: `${imgWidth}` }}>
+        <div className={classes.div} style={{ width: `${imgWidth}` }}>
           <Typography
-            className={styles.page3Header2}
+            className={classes.header2}
             style={{ fontSize: `${header2Size}` }}
           >
             HVAC
@@ -65,7 +115,7 @@ export default function Page3(props) {
             src={home_system1}
           />
           <Typography
-            className={styles.page3Text1}
+            className={classes.text1}
             style={{ fontSize: `${textSize}` }}
           >
             {t(
@@ -73,9 +123,9 @@ export default function Page3(props) {
             )}
           </Typography>
         </div>
-        <div className={styles.page3Div} style={{ width: `${imgWidth}` }}>
+        <div className={classes.div} style={{ width: `${imgWidth}` }}>
           <Typography
-            className={styles.page3Header2}
+            className={classes.header2}
             style={{ fontSize: `${header2Size}` }}
           >
             {t("BEZPIECZEŃSTWA")}
@@ -92,7 +142,7 @@ export default function Page3(props) {
             src={home_system2}
           />
           <Typography
-            className={styles.page3Text1}
+            className={classes.text1}
             style={{ fontSize: `${textSize}` }}
           >
             {t(
@@ -100,9 +150,9 @@ export default function Page3(props) {
             )}
           </Typography>
         </div>
-        <div className={styles.page3Div} style={{ width: `${imgWidth}` }}>
+        <div className={classes.div} style={{ width: `${imgWidth}` }}>
           <Typography
-            className={styles.page3Header2}
+            className={classes.header2}
             style={{ fontSize: `${header2Size}` }}
           >
             {t("MONITORING")}
@@ -119,7 +169,7 @@ export default function Page3(props) {
             src={home_system3}
           />
           <Typography
-            className={styles.page3Text1}
+            className={classes.text1}
             style={{ fontSize: `${textSize}` }}
           >
             {t(
