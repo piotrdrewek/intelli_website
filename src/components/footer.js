@@ -22,9 +22,7 @@ function Footer(props) {
   const [adressTextSize, setAdressTextSize] = useState(
     props.isMobile ? "5px" : "10px"
   );
-  const [madeBySize, setMadeBySize] = useState(
-    props.isMobile ? "0.3rem" : "5px"
-  );
+  const [madeBySize, setMadeBySize] = useState(props.isMobile ? "5px" : "10px");
   const [menuMargin, setMenuMargin] = useState(props.isMobile ? "5%" : "10%");
   const [footerMarginTop, setFooterMarginTop] = useState(
     props.isMobile ? "5%" : "0%"
@@ -177,7 +175,7 @@ function Footer(props) {
         <div className={styles.footerMadeBy}>
           <Typography style={{ fontSize: `${madeBySize}` }}>
             {/* {" "} */}
-            Created by: &nbsp;
+            &copy; 2023 &nbsp;
           </Typography>
           <a
             href="https://www.linkedin.com/in/piotr-drewek/"

@@ -27,20 +27,24 @@ export default function Page5(props) {
           backgroundColor: "white",
         }}
       >
-        <Typography
-          className={styles.page5Header1}
-          style={{ fontSize: `${header1Size}` }}
-        >
-          {t("Aplikacja użykownika")}
-        </Typography>
-        <Typography
-          className={styles.page5Text1}
-          style={{ fontSize: `${textSize}` }}
-        >
-          {t(
-            "Wygodne sterowanie i monitorowanie funkcji budynku za pomocą jednej aplikacji na smartphone, tablet lub komputer, w każdym miejscu na świecie."
-          )}
-        </Typography>
+        <div className={styles.page1VerticalLine}></div>
+        <div className={styles.page5Right}>
+          <Typography
+            className={styles.page5Header1}
+            style={{ fontSize: `${header1Size}` }}
+          >
+            {t("Aplikacja użykownika")}
+          </Typography>
+          <div className={styles.page1HorizontalLine}></div>
+          <Typography
+            className={styles.page5Text1}
+            style={{ fontSize: `${textSize}` }}
+          >
+            {t(
+              "Wygodne sterowanie i monitorowanie funkcji budynku za pomocą jednej aplikacji na smartphone, tablet lub komputer, w każdym miejscu na świecie."
+            )}
+          </Typography>
+        </div>
       </div>
     </Paper>
   );

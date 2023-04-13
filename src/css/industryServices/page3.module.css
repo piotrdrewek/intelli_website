@@ -19,3 +19,19 @@
   margin-left: 10% !important;
   margin-right: 10% !important;
 }
+.page3HorizontalLineLeft {
+  position: absolute;
+  width: 50%;
+  border: 1px solid #fdd04c;
+  background: #fdd04c;
+  height: 1px;
+  left: 10%;
+}
+.page3HorizontalLineRight {
+  position: absolute;
+  width: 50%;
+  border: 1px solid #fdd04c;
+  background: #fdd04c;
+  height: 1px;
+  left: 40%;
+}

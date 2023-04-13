@@ -28,6 +28,7 @@ export default function Page3(props) {
         >
           {t("KONCEPCJA")}
         </Typography>
+        <div className={styles.page3HorizontalLineLeft}></div>
         <Typography
           className={styles.page3Text1}
           style={{ fontSize: `${textSize}` }}
@@ -47,6 +48,7 @@ export default function Page3(props) {
         >
           {t("PROJEKT")}
         </Typography>
+        <div className={styles.page3HorizontalLineRight}></div>
         <Typography
           className={styles.page3Text1}
           style={{ fontSize: `${textSize}` }}
@@ -66,6 +68,7 @@ export default function Page3(props) {
         >
           {t("SZAFY STEROWNICZE")}
         </Typography>
+        <div className={styles.page3HorizontalLineLeft}></div>
         <Typography
           className={styles.page3Text1}
           style={{ fontSize: `${textSize}` }}
@@ -85,6 +88,8 @@ export default function Page3(props) {
         >
           {t("MONTAŻ")}
         </Typography>
+        <div className={styles.page3HorizontalLineRight}></div>
+
         <Typography
           className={styles.page3Text1}
           style={{

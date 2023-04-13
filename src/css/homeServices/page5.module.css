@@ -14,7 +14,14 @@
   height: 100%;
   width: 50%;
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+.page5Right {
+  height: 100%;
   flex-direction: column;
+  display: flex;
   align-items: flex-start;
   justify-content: center;
 }
@@ -32,4 +39,16 @@
   margin-left: 10% !important;
   margin-right: 10% !important;
   text-align: left;
+}
+.page1VerticalLine {
+  height: 100vh;
+  border: 1px solid #ffa033;
+  background: #ffa033;
+  width: 3px;
+}
+.page1HorizontalLine {
+  width: calc(100% - 2px);
+  border: 1px solid #ffa033;
+  background: #ffa033;
+  height: 1px;
 }

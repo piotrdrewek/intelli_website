@@ -20,21 +20,13 @@ export default function Page4(props) {
       className={styles.page4Content}
       style={{ backgroundImage: `url(${industry_background3})` }}
     >
-      <div
-        className={styles.page4Half}
-        style={{
-          width: "100%",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          justifyContent: "space-around",
-        }}
-      >
+      <div className={styles.page4Half}>
         <div className={styles.page4Line}>
           <Typography
             className={styles.page4Header1}
             style={{ fontSize: `${header1Size}` }}
           >
-            {t("PRZYGOTOWANIE PLC/HMI")}
+            {t("PLC/HMI")}
           </Typography>
           <Typography
             className={styles.page4Text1}
@@ -45,6 +37,7 @@ export default function Page4(props) {
             )}
           </Typography>
         </div>
+        <div className={styles.page4HorizontalLine}></div>
         <div
           className={styles.page4Line}
           style={{ alignItems: "space-between" }}
@@ -64,6 +57,7 @@ export default function Page4(props) {
             )}
           </Typography>
         </div>
+        <div className={styles.page4HorizontalLine}></div>
         <div className={styles.page4Line}>
           <Typography
             className={styles.page4Header1}
@@ -80,6 +74,7 @@ export default function Page4(props) {
             )}
           </Typography>
         </div>
+        <div className={styles.page4HorizontalLine}></div>
         <div className={styles.page4Line}>
           <Typography
             className={styles.page4Header1}

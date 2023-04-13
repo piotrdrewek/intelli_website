@@ -24,9 +24,9 @@ i18n
     supportedLngs: ["PL", "EN"],
     lng: "PL",
     fallbackLng: "EN",
-    debug: true,
+    debug: false,
     backend: {
-      loadPath: "/intelli_website/locales/{{lng}}/{{ns}}.json",
+      loadPath: "/locales/{{lng}}/{{ns}}.json",
     },
 
     interpolation: {

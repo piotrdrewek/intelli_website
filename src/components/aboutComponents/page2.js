@@ -27,28 +27,35 @@ export default function Page2(props) {
 
   return (
     <Paper className={styles.page2Content}>
-      <div className={styles.page2Half} style={{ backgroundColor: "white" }}>
+      <div
+        className={styles.page2Half}
+        style={{ backgroundColor: "white", flexDirection: "row" }}
+      >
         {" "}
-        <Typography
-          className={styles.page2Header1}
-          style={{ fontSize: `${header1Size}` }}
-        >
-          {t("Nasza praca")}
-        </Typography>
-        <Typography
-          className={styles.page2Text1}
-          style={{ fontSize: `${text1Size}` }}
-        >
-          {t(
-            "Zajmujemy się całym procesem produkcyjnym związanym z dostarczeniem w pełni funkcjonalnego systemu automatyki, wspierającego funkcjonowanie magazynów, zakładów produkcyjnych i centrów dystrybucyjnych."
-          )}
-        </Typography>
-        <Box
-          component="img"
-          style={{ height: `${photoHeight}`, width: `${photoWidth}` }}
-          alt="Your logo."
-          src={about1}
-        />
+        <div className={styles.page2Left}>
+          <Typography
+            className={styles.page2Header1}
+            style={{ fontSize: `${header1Size}` }}
+          >
+            {t("Nasza praca")}
+          </Typography>
+          <div className={styles.page2HorizontalLine}></div>
+          <Typography
+            className={styles.page2Text1}
+            style={{ fontSize: `${text1Size}` }}
+          >
+            {t(
+              "Zajmujemy się całym procesem produkcyjnym związanym z dostarczeniem w pełni funkcjonalnego systemu automatyki, wspierającego funkcjonowanie magazynów, zakładów produkcyjnych i centrów dystrybucyjnych."
+            )}
+          </Typography>
+          <Box
+            component="img"
+            style={{ height: `${photoHeight}`, width: `${photoWidth}` }}
+            alt="Your logo."
+            src={about1}
+          />
+        </div>
+        <div className={styles.page2VerticalLine}></div>
       </div>
       <div className={styles.page2Half} style={{ backgroundColor: "white" }}>
         <Box
@@ -63,6 +70,7 @@ export default function Page2(props) {
         >
           {t("Nasza misja")}
         </Typography>
+        <div className={styles.page2HorizontalLine}></div>
         <Typography
           className={styles.page2Text1}
           style={{
